@@ -4,8 +4,8 @@ import type { Order } from '../../../../backend/types/orders';
 import type { UserAccount } from '../../../../backend/types/users';
 import type { CartItem } from '../../../../backend/types/cart';
 import type { OrderItem } from '../../../../backend/types/orders';
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
+import { Header } from '../../Components/Header';
+import { Footer } from '../../Components/Footer';
 import './Orders.css';
 
 // ── HELPERS ──

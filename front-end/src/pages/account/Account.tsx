@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router'
 import type { UserAccount } from '../../../../backend/types/users';
-import { Header } from '../../components/Header'
+import { Header } from '../../Components/Header'
 import './Account.css'
 
 type Panel = 'profile' | 'address' | 'payment' | 'preferences' | 'appointments' | 'orders' | 'help'

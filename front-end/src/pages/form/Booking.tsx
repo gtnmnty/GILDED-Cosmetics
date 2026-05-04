@@ -3,8 +3,8 @@ import { useLocation, useNavigate } from 'react-router';
 import type { BookingForm } from '../../../../backend/types/booking.ts';
 import type { UserAccount } from '../../../../backend/types/users.ts';
 import type { Appointment } from '../../../../backend/types/appointments.ts';
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
+import { Header } from '../../Components/Header.js';
+import { Footer } from '../../Components/Footer.js';
 import './Booking.css';
 
 const BRANCHES = [

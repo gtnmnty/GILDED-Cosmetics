@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 import type { Appointment } from '../../../../backend/types/appointments.js';
 import type { UserAccount } from '../../../../backend/types/users.js';
 
-import { Header } from '../../components/Header.js';
+import { Header } from '../../Components/Header.js';
 import './Appointments.css';
 
 type FilterType = 'all' | 'upcoming' | 'completed' | 'cancelled';

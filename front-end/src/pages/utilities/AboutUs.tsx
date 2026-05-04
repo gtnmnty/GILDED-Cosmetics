@@ -3,8 +3,8 @@ import { useLocation } from 'react-router';
 import axios from 'axios';
 import type { AccordionItem, ReviewItem } from '../../../../backend/types/about'
 
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
+import { Header } from '../../Components/Header';
+import { Footer } from '../../Components/Footer';
 import './AboutUs.css'
 
 function AccordionItemComp({ item }: { item: AccordionItem }) {

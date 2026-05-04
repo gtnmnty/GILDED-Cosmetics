@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import type { FaqItem } from '../../../../backend/types/faqs.ts';
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
+import { Header } from '../../Components/Header.js';
+import { Footer } from '../../Components/Footer.js';
 import './Faqs.css';
 
 interface FAQCategory {

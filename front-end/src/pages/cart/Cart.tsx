@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 import type { CartItem } from '../../../../backend/types/cart';
 import { deliveryOpts } from '../../../../backend/data/deliveryOption';
 import { formatCurrency } from './cartFormat';
-import { Header } from '../../components/Header';
+import { Header } from '../../Components/Header';
 import './Cart.css'
 
 

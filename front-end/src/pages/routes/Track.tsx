@@ -1,7 +1,7 @@
 import { useNavigate, useLocation } from 'react-router';
 import type { Order } from '../../../../backend/types/orders';
 import type { UserAccount } from '../../../../backend/types/users';
-import { Header } from '../../components/Header';
+import { Header } from '../../Components/Header';
 import './Track.css';
 
 // ── TYPES ──
