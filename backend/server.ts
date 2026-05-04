@@ -11,9 +11,9 @@ import { productsAftercare } from './data/faqs/products-aftercare';
 import { servicesPricing } from './data/faqs/services-pricing';
 import { shippingReturns } from './data/faqs/shipping-returns';
 
-import { services } from './data/services.js';
-import { products } from './data/products.js';
-import { deliveryOpts } from './data/deliveryOption.js';
+import { services } from './data/services';
+import { products } from './data/products';
+import { deliveryOpts } from './data/deliveryOption';
 
 
 import mongoose from 'mongoose';
