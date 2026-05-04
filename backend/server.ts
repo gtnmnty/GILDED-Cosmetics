@@ -1,15 +1,15 @@
 import express from 'express';
 import cors from 'cors';
 
-import { accordions } from './data/about-us/accordion.js';
-import { reviews } from './data/about-us/reviews.js';
+import { accordions } from './data/about-us/accordion';
+import { reviews } from './data/about-us/reviews';
 
-import { accountPayments } from './data/faqs/account-payments.js';
-import { appointmentsBooking } from './data/faqs/appointments-booking.js';
-import { ordersDelivery } from './data/faqs/orders-delivery.js';
-import { productsAftercare } from './data/faqs/products-aftercare.js';
-import { servicesPricing } from './data/faqs/services-pricing.js';
-import { shippingReturns } from './data/faqs/shipping-returns.js';
+import { accountPayments } from './data/faqs/account-payments';
+import { appointmentsBooking } from './data/faqs/appointments-booking';
+import { ordersDelivery } from './data/faqs/orders-delivery';
+import { productsAftercare } from './data/faqs/products-aftercare';
+import { servicesPricing } from './data/faqs/services-pricing';
+import { shippingReturns } from './data/faqs/shipping-returns';
 
 import { services } from './data/services.js';
 import { products } from './data/products.js';
