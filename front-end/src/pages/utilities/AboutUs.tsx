@@ -147,8 +147,10 @@ export function AboutUs() {
   const [items, setItems] = useState<AccordionItem[]>([]);
   const [reviews, setReviews] = useState<ReviewItem[]>([]);
 
+  const API = import.meta.env.VITE_API_URL
+
   useEffect(() => {
-    axios.get('http://localhost:5000/api/about/accordion')
+    axios.get(`${API}/api/about/accordion`)
       .then(res => {
           const data = res.data;
           setItems(Array.isArray(data) ? data : [])

@@ -83,8 +83,10 @@ export function Faqs() {
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState('all');
 
+  const API = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
-    axios.get('http://localhost:5000/api/faqs')
+    axios.get(`${API}/api/faqs`)
       .then(res => {
         console.log('FAQ data:', res.data);
         const data = res.data;
