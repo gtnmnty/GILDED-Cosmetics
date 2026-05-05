@@ -401,7 +401,6 @@ export const Checkout: React.FC = () => {
 
             <div className="summary-footer">
               <div className="note-box">
-                <span className="note-icon">i</span>
                 <span>Note: Please review all information and order details before proceeding.</span>
               </div>
               <div className="summary-footer-btn">

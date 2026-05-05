@@ -190,16 +190,6 @@ const CartItemRow = ({ item, onUpdateQty, onRemove, onUpdate, onUpdateDelivery, 
             <span>Subtotal: <strong>{formatCurrency(item.price * item.qty)}</strong></span>
           </div>
           <div className="cart-meta-button">
-            <button className="btn-checkout-item" onClick={() => {
-              onRequireLogin(() => {
-                sessionStorage.setItem('checkoutItems', JSON.stringify([item]))
-                const current = JSON.parse(localStorage.getItem('cart') ?? '[]')
-                localStorage.setItem('cart', JSON.stringify(current.filter((c: CartItem) => c.id !== item.id)))
-                navigate('/checkout')
-              })
-            }}>
-              Checkout
-            </button>
           </div>
         </div>
       </div>
@@ -212,6 +202,16 @@ const CartItemRow = ({ item, onUpdateQty, onRemove, onUpdate, onUpdateDelivery, 
             </option>
           ))}
         </select>
+        <button className="btn-checkout-item" onClick={() => {
+          onRequireLogin(() => {
+            sessionStorage.setItem('checkoutItems', JSON.stringify([item]))
+            const current = JSON.parse(localStorage.getItem('cart') ?? '[]')
+            localStorage.setItem('cart', JSON.stringify(current.filter((c: CartItem) => c.id !== item.id)))
+            navigate('/checkout')
+          })
+        }}>
+          Checkout
+        </button>
       </div>
     </article>
   );

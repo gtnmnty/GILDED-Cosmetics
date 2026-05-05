@@ -316,7 +316,7 @@
 
 /* ── FEATURED PRODUCTS ── */
 .hp-page .section-products {
-  padding: clamp(3.5rem, 7vw, 6rem) 10vw;
+  padding: clamp(3.5rem, 7vw, 6rem) 10.5vw;
   background: var(--warm-grey);
 }
 
@@ -345,15 +345,15 @@
   position: absolute;
   top: 14px;
   left: 14px;
-  background: rgba(197, 160, 89, 0.15);
+  background: rgb(0, 0, 0);
   border: 1px solid var(--gold);
   color: var(--gold);
   font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 0.22rem 0.65rem;
-  border-radius: 2px;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
   z-index: 2;
 }
 
@@ -405,7 +405,7 @@
 }
 
 .hp-page .product-price {
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: clamp(1rem, 2vw, 1.7rem);
   color: var(--gold);
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -415,6 +415,7 @@
   display: flex;
   gap: 0.75rem;
   justify-content: space-between;
+  align-items: center;
 }
 
 .hp-page .product-actions {
@@ -423,6 +424,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
+  font-family: 'Cormorant Garamond', sans-serif;
 }
 
 .hp-page .btn-cart {

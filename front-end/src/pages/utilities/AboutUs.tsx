@@ -1,12 +1,28 @@
 import { useEffect, useState, useRef } from 'react';
 import { useLocation } from 'react-router';
-import axios from 'axios';
-import type { AccordionItem, ReviewItem } from '../../../../backend/types/about'
 
 import { Header } from '../../Components/Header';
 import { Footer } from '../../Components/Footer';
-import './AboutUs.css'
+import { accordions } from './about-us/accordion';
+import { reviews } from './about-us/reviews';
 
+export interface AccordionItem {
+  id: number;
+  title: string;
+  html: string;
+}
+ 
+export interface ReviewItem {
+  initial: string;
+  name: string;
+  stars: number;
+  text: string;
+}
+
+
+import './AboutUs.css';
+
+/* ── ACCORDION ITEM ── */
 function AccordionItemComp({ item }: { item: AccordionItem }) {
   const [open, setOpen] = useState(false);
   const bodyRef = useRef<HTMLDivElement>(null);
@@ -21,12 +37,15 @@ function AccordionItemComp({ item }: { item: AccordionItem }) {
       body.style.height = inner.offsetHeight + 'px';
     } else {
       body.style.height = body.offsetHeight + 'px';
-      requestAnimationFrame(() => requestAnimationFrame(() => {
-        body.style.height = '0px';
-      }));
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => {
+          body.style.height = '0px';
+        })
+      );
     }
     setOpen(prev => !prev);
-  }
+  };
+
   return (
     <div className={`accordion-item${open ? ' open' : ''}`}>
       <button className="accordion-header" aria-expanded={open} onClick={toggle}>
@@ -47,6 +66,7 @@ function AccordionItemComp({ item }: { item: AccordionItem }) {
   );
 }
 
+/* ── TESTIMONIAL CARD ── */
 function TestimonialCard({ item }: { item: ReviewItem }) {
   return (
     <div className="testimonial-card">
@@ -61,9 +81,10 @@ function TestimonialCard({ item }: { item: ReviewItem }) {
       </div>
       <p className="testimonial-text">{item.text}</p>
     </div>
-  )
+  );
 }
 
+/* ── TESTIMONIALS CAROUSEL ── */
 function TestimonialsCarousel({ data }: { data: ReviewItem[] }) {
   const [current, setCurrent] = useState(0);
   const [perPage, setPerPage] = useState(3);
@@ -120,49 +141,35 @@ function TestimonialsCarousel({ data }: { data: ReviewItem[] }) {
   );
 }
 
-function useScrollReveal(selector: string){
+/* ── SCROLL REVEAL ── */
+function useScrollReveal(selector: string) {
   useEffect(() => {
     const els = document.querySelectorAll<HTMLElement>(selector);
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if(e.isIntersecting){
-          (e.target as HTMLElement).style.opacity = '1';
-          (e.target as HTMLElement).style.transform = 'translateY(0)'
-        }
-      })
-    }, {threshold: 0.1});
+    const obs = new IntersectionObserver(
+      entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            (e.target as HTMLElement).style.opacity = '1';
+            (e.target as HTMLElement).style.transform = 'translateY(0)';
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
 
     els.forEach((el, i) => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(20px)';
       el.style.transition = `opacity .6s ${i * 0.05}s ease, transform .6s ${i * 0.05}s ease`;
       obs.observe(el);
-    })
+    });
 
     return () => obs.disconnect();
-  }, [selector])
+  }, [selector]);
 }
 
+/* ── MAIN COMPONENT ── */
 export function AboutUs() {
-  const [items, setItems] = useState<AccordionItem[]>([]);
-  const [reviews, setReviews] = useState<ReviewItem[]>([]);
-
-  const API = import.meta.env.VITE_API_URL
-
-  useEffect(() => {
-    axios.get(`${API}/api/about/accordion`)
-      .then(res => {
-          const data = res.data;
-          setItems(Array.isArray(data) ? data : [])
-      })
-      .catch(err => console.log('sdsdssd'))
-  }, [])
-
-  useEffect(() => {
-    axios.get('http://localhost:5000/api/about/reviews')
-      .then(res => setReviews(Array.isArray(res.data) ? res.data : []))
-  }, [])
-
   useScrollReveal('#accordionList .accordion-item, .contact-btn');
 
   const { hash } = useLocation();
@@ -172,39 +179,41 @@ export function AboutUs() {
       const el = document.querySelector(hash);
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [hash])
+  }, [hash]);
 
   return (
-    <div className='ab-page'>
+    <div className="ab-page">
       <title>GILDED - About Us</title>
       <Header />
 
-      {/* <!-- HERO --> */}
+      {/* HERO */}
       <section className="hero">
         <p className="hero-ornament">Cosmetics &amp; Beauty</p>
-        <h1>About <em>Gilded</em></h1>
-        <div className="hero-divider"></div>
+        <h1>
+          About <em>Gilded</em>
+        </h1>
+        <div className="hero-divider" />
         <p className="hero-sub">Where luxury meets artistry</p>
       </section>
 
-      {/* <!-- ACCORDION --> */}
+      {/* ACCORDION */}
       <section className="accordion-section">
         <p className="accordion-section-label">Our Story &amp; Values</p>
         <div id="accordionList">
-          {items.map(item => (
+          {accordionItems.map(item => (
             <AccordionItemComp key={item.id} item={item} />
           ))}
         </div>
       </section>
 
-      {/* <!-- TESTIMONIALS --> */}
+      {/* TESTIMONIALS */}
       <section className="testimonials" id="testimonials">
         <h2 className="section-title">Testimonials</h2>
-        <div className="section-rule"></div>
-          <TestimonialsCarousel data={reviews}/>
+        <div className="section-rule" />
+        <TestimonialsCarousel data={reviewItems} />
       </section>
 
-      {/* <!-- CONTACT --> */}
+      {/* CONTACT */}
       <section className="contact-section" id="au-contact-section">
         <p className="contact-intro">You can contact us via:</p>
         <div className="contact-buttons">
@@ -218,5 +227,5 @@ export function AboutUs() {
 
       <Footer />
     </div>
-  )
+  );
 }

@@ -50,7 +50,7 @@ export const services: ServiceItem[] = [
     category: 'Nail Care',
     price: '\u20B1850',
     priceNum: 850,
-    badge: null,
+    badge: "Popular",
     desc: 'Flawless nails that last up to three weeks, with premium gel polish and hand massage.',
     imgs: [
       'https://plus.unsplash.com/premium_photo-1661432806304-6d6cb7bfa4c1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bmFpbCUyMHBvbGlzaHxlbnwwfHwwfHx8MA%3D%3D',
@@ -75,9 +75,9 @@ export const services: ServiceItem[] = [
     badge: 'Premium',
     desc: 'All-day glamour crafted for your most important day, with airbrush finish and lash application.',
     imgs: [
-      'https://images.unsplash.com/photo-1457972729786-0411a3b2b626?w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=800&auto=format&fit=crop',
+      'https://images.pexels.com/photos/16799888/pexels-photo-16799888.jpeg',
+      'https://images.pexels.com/photos/16799889/pexels-photo-16799889.jpeg',
+      'https://images.pexels.com/photos/12891485/pexels-photo-12891485.jpeg',
       'https://plus.unsplash.com/premium_photo-1661326352695-6cbe1ff74ee9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QnJpZGFsJTIwTWFrZSUyMFVwfGVufDB8fDB8fHww'
     ],
     info: ['Pre-Bridal Consultation', 'Skin Prep & Primer', 'Airbrush Foundation', 'Lash Application', 'Setting Spray', 'Touch-Up Kit'],
@@ -129,356 +129,436 @@ export const services: ServiceItem[] = [
       { name: 'Katrina M.', stars: 5, date: 'Feb 2025', text: 'A true ritual, not just a pedicure. I leave feeling completely renewed every time.' }
     ]
   },
-  // {
-  //   id: 7,
-  //   name: 'Signature Gel Manicure',
-  //   category: 'Nail Care',
-  //   price: '₱800',
-  //   priceNum: 800,
-  //   badge: 'Popular',
-  //   desc: 'A long-lasting gel manicure with high-shine finish and precise cuticle care.',
-  //   imgs: [],
-  //   info: [
-  //     'High-shine finish[cite: 1]',
-  //     'Chip-resistant for 3 weeks[cite: 1]',
-  //     'Precise cuticle work[cite: 1]',
-  //     'Relaxing hand massage[cite: 1]'
-  //   ],
-  //   reviewCount: 320,
-  //   reviews: [
-  //     { name: 'Isabella M.', stars: 5, date: 'Apr 2025', text: 'The high-shine finish is incredible and my nails feel so strong.' },
-  //     { name: 'Mia V.', stars: 5, date: 'Mar 2025', text: 'Finally found a place where the gel actually lasts three weeks without chipping!' },
-  //     { name: 'Elena G.', stars: 4, date: 'Feb 2025', text: 'Very precise cuticle work and the hand massage was a lovely bonus.' }
-  //   ]
-  // },
-  // {
-  //   id: 8,
-  //   name: 'Luxury Spa Pedicure',
-  //   category: 'Nail Care',
-  //   price: '₱950',
-  //   priceNum: 950,
-  //   badge: '',
-  //   desc: 'Relaxing pedicure with exfoliation, mask, and hydration treatment.',
-  //   imgs: [],
-  //   info: [
-  //     'Rejuvenating soak[cite: 1]',
-  //     'Exfoliation treatment[cite: 1]',
-  //     'Hydrating mask[cite: 1]',
-  //     'Soothes tired muscles[cite: 1]'
-  //   ],
-  //   reviewCount: 210,
-  //   reviews: [
-  //     { name: 'Sofia L.', stars: 5, date: 'Apr 2025', text: 'My feet have never been this soft; the hydrating mask is magic.' },
-  //     { name: 'Carla R.', stars: 5, date: 'Jan 2025', text: 'Perfect for tired feet! The exfoliation and soak were so rejuvenating.' },
-  //     { name: 'Janine K.', stars: 5, date: 'Dec 2024', text: 'The absolute best pedicure experience. I felt so pampered.' }
-  //   ]
-  // },
-  // {
-  //   id: 9,
-  //   name: 'Builder Gel (BIAB) Overlay',
-  //   category: 'Nail Care',
-  //   price: '₱1,100',
-  //   priceNum: 1100,
-  //   badge: 'Trending',
-  //   desc: 'Strengthens natural nails with a durable protective overlay.',
-  //   imgs: [],
-  //   info: [
-  //     'Strengthens natural nails[cite: 1]',
-  //     'Durability without bulk[cite: 1]',
-  //     'Protective hard shell[cite: 1]',
-  //     'Prevents breakage[cite: 1]'
-  //   ],
-  //   reviewCount: 180,
-  //   reviews: [
-  //     { name: 'Beatrice T.', stars: 5, date: 'Mar 2025', text: 'My natural nails are finally growing long thanks to this protective overlay.' },
-  //     { name: 'Nina K.', stars: 5, date: 'Feb 2025', text: 'I love how it adds strength without looking bulky like acrylics.' },
-  //     { name: 'Ria J.', stars: 5, date: 'Jan 2025', text: 'Total game changer for weak nails. They haven’t snapped once!' }
-  //   ]
-  // },
+  {
+    id: 7,
+    name: 'Evening Gala Makeup',
+    category: 'Make Up',
+    price: '₱2,800',
+    priceNum: 2800,
+    badge: null,
+    desc: 'Sophisticated, high-definition artistry tailored for formal events and evening photography.',
+    imgs: [
+      'https://tinyurl.com/mvs8dsk2',
+      'https://tinyurl.com/2j6tbnc2',
+      'https://tinyurl.com/4t8j74aw',
+      'https://tinyurl.com/5f6hszme'
+    ],
+    info: [
+      'High-definition contouring techniques',
+      'Photogenic, long-wear finish',
+      'Custom lash application included',
+      'Elegant, sophisticated aesthetic'
+    ],
+    reviewCount: 92,
+    reviews: [
+      { name: 'Mia V.', stars: 5, date: 'Oct 14, 2025', text: 'I felt like a celebrity at my company gala.' },
+      { name: 'Chloe B.', stars: 5, date: 'Feb 03, 2025', text: 'The makeup looked flawless even after six hours of dancing.' },
+      { name: 'Grace E.', stars: 5, date: 'Aug 22, 2025', text: 'Stunning attention to detail on the eye makeup.' }
+    ]
+  },
+  {
+    id: 8,
+    name: 'Builder Gel (BIAB) Overlay',
+    category: 'Nail Care',
+    price: '₱1,100',
+    priceNum: 1100,
+    badge: 'Trending',
+    desc: 'A durable reinforcement for natural nails that promotes growth and provides exceptional strength.',
+    imgs: [
+      'https://images.pexels.com/photos/6830805/pexels-photo-6830805.jpeg',
+      'https://images.pexels.com/photos/4963818/pexels-photo-4963818.jpeg',
+      'https://images.pexels.com/photos/939835/pexels-photo-939835.jpeg',
+      'https://images.pexels.com/photos/939834/pexels-photo-939834.jpeg'
+    ],
+    info: [
+      'Reinforces natural nail structure',
+      'Promotes healthy nail growth',
+      'Durable, chip-resistant finish',
+      'Ideal for weak or brittle nails'
+    ],
+    reviewCount: 156,
+    reviews: [
+      { name: 'Isabella M.', stars: 5, date: 'Sep 29, 2025', text: 'My natural nails have never been this long or strong.' },
+      { name: 'Sophia R.', stars: 5, date: 'Jan 12, 2025', text: 'The perfect alternative to acrylics with a much lighter feel.' },
+      { name: 'Elena G.', stars: 4, date: 'Jul 18, 2025', text: 'Beautiful application and very professional service.' }
+    ]
+  },
+  {
+    id: 9,
+    name: 'Signature Blowout',
+    category: 'Hair Care',
+    price: '₱1,500',
+    priceNum: 1500,
+    badge: 'Popular',
+    desc: 'A luxurious wash and style that provides incredible volume and a glossy, salon-perfect finish.',
+    imgs: [
+      'https://images.pexels.com/photos/7755521/pexels-photo-7755521.jpeg',
+      'https://images.pexels.com/photos/7755534/pexels-photo-7755534.jpeg',
+      'https://images.pexels.com/photos/7755518/pexels-photo-7755518.jpeg',
+      'https://images.pexels.com/photos/7755223/pexels-photo-7755223.jpeg'
+    ],
+    info: [
+      'Volume-enhancing round brush technique',
+      'Silky, frizz-free texture',
+      'Long-lasting professional hold',
+      'Includes premium hair mask'
+    ],
+    reviewCount: 210,
+    reviews: [
+      { name: 'Isabella M.', stars: 5, date: 'Nov 05, 2025', text: 'The bounce in my hair lasted for three whole days!' },
+      { name: 'Lily J.', stars: 5, date: 'Mar 17, 2025', text: 'The best blowout in the city, hands down.' },
+      { name: 'Janine K.', stars: 4, date: 'Jun 24, 2025', text: 'Very relaxing experience and my hair looked so shiny.' }
+    ]
+  },
   // {
   //   id: 10,
-  //   name: 'Custom Nail Artistry',
-  //   category: 'Nail Care',
-  //   price: '₱1,300',
-  //   priceNum: 1300,
-  //   badge: '',
-  //   desc: 'Custom nail designs from minimal to intricate art.',
-  //   imgs: [],
-  //   info: [
-  //     'Minimalist to intricate[cite: 1]',
-  //     'Hand-painted masterpieces[cite: 1]',
-  //     'Brings vision to life[cite: 1]',
-  //     'Tailored personal style[cite: 1]'
-  //   ],
-  //   reviewCount: 260,
-  //   reviews: [
-  //     { name: 'Aria S.', stars: 5, date: 'Apr 2025', text: 'The artist turned my Pinterest board into a hand-painted masterpiece!' },
-  //     { name: 'Chloe B.', stars: 5, date: 'Mar 2025', text: 'The level of detail in the minimalist lines is absolutely perfect.' },
-  //     { name: 'Sam N.', stars: 5, date: 'Feb 2025', text: 'Unbelievable talent. Every nail is a work of art.' }
-  //   ]
-  // },
-  // {
-  //   id: 11,
-  //   name: 'The Bridal Glam Experience',
-  //   category: 'Makeup',
-  //   price: '₱5,500',
-  //   priceNum: 5500,
-  //   badge: 'Premium',
-  //   desc: 'Full bridal glam with consultation and long-lasting waterproof finish.',
-  //   imgs: [],
-  //   info: [
-  //     'Detailed consultation[cite: 1]',
-  //     'Waterproof finish[cite: 1]',
-  //     'Camera-ready look[cite: 1]',
-  //     'Natural beauty focus[cite: 1]'
-  //   ],
-  //   reviewCount: 400,
-  //   reviews: [
-  //     { name: 'Patricia L.', stars: 5, date: 'Mar 2025', text: 'I felt like the best version of myself; the makeup lasted through all the happy tears!' },
-  //     { name: 'Diana M.', stars: 5, date: 'Feb 2025', text: 'Camera-ready and flawless. The consultation really helped ease my wedding nerves.' },
-  //     { name: 'Lea V.', stars: 5, date: 'Jan 2025', text: 'Truly premium service. My makeup looked perfect until the very end of the reception.' }
-  //   ]
-  // },
-  // {
-  //   id: 12,
-  //   name: 'Evening Gala Makeup',
-  //   category: 'Makeup',
-  //   price: '₱2,800',
-  //   priceNum: 2800,
-  //   badge: '',
-  //   desc: 'High-impact evening makeup perfect for events and photography.',
-  //   imgs: [],
-  //   info: [
-  //     'High-impact look[cite: 1]',
-  //     'Low-light optimization[cite: 1]',
-  //     'Premium lash application[cite: 1]',
-  //     'Precision contouring[cite: 1]'
-  //   ],
-  //   reviewCount: 230,
-  //   reviews: [
-  //     { name: 'Vera D.', stars: 5, date: 'Jan 2025', text: 'The contouring was spot on and it looked incredible in all the event photos.' },
-  //     { name: 'Monica G.', stars: 5, date: 'Dec 2024', text: 'The premium lashes made my eyes pop. I got so many compliments all night!' },
-  //     { name: 'Kyla R.', stars: 5, date: 'Nov 2024', text: 'Perfect for my corporate gala. Professional, sophisticated, and striking.' }
-  //   ]
-  // },
-  // {
-  //   id: 13,
-  //   name: '"No-Makeup" Natural Look',
-  //   category: 'Makeup',
-  //   price: '₱1,800',
-  //   priceNum: 1800,
-  //   badge: '',
-  //   desc: 'Lightweight natural look for everyday beauty.',
-  //   imgs: [],
-  //   info: [
-  //     'Focus on glowing skin[cite: 1]',
-  //     'Subtle enhancement[cite: 1]',
-  //     'Lightweight textures[cite: 1]',
-  //     'Effortless aesthetic[cite: 1]'
-  //   ],
-  //   reviewCount: 150,
-  //   reviews: [
-  //     { name: 'Lily J.', stars: 5, date: 'Mar 2025', text: 'The most effortless glow I have ever had. Perfect for my professional headshots.' },
-  //     { name: 'Sara O.', stars: 4, date: 'Feb 2025', text: 'So lightweight I forgot I was wearing makeup. Very fresh and natural.' },
-  //     { name: 'Tina M.', stars: 5, date: 'Jan 2025', text: 'Exactly what I wanted. I looked like myself, just more polished.' }
-  //   ]
-  // },
-  // {
-  //   id: 14,
-  //   name: 'Personal Makeup Lesson',
-  //   category: 'Makeup',
-  //   price: '₱3,200',
-  //   priceNum: 3200,
-  //   badge: '',
-  //   desc: 'Learn techniques and build your personal routine.',
-  //   imgs: [],
-  //   info: [
-  //     'Master the perfect wing[cite: 1]',
-  //     'Foundation shade matching[cite: 1]',
-  //     'Customized face chart[cite: 1]',
-  //     'Professional techniques[cite: 1]'
-  //   ],
-  //   reviewCount: 120,
-  //   reviews: [
-  //     { name: 'Gwen P.', stars: 5, date: 'Apr 2025', text: 'I finally learned how to do a winged liner that suits my eye shape!' },
-  //     { name: 'Ruby W.', stars: 5, date: 'Mar 2025', text: 'The customized face chart is so helpful for recreating the look at home.' },
-  //     { name: 'Anne C.', stars: 5, date: 'Feb 2025', text: 'I learned more in two hours than I did in years of watching tutorials.' }
-  //   ]
-  // },
-  // {
-  //   id: 15,
-  //   name: 'Signature Blowout',
-  //   category: 'Hair Care',
-  //   price: '₱1,500',
-  //   priceNum: 1500,
-  //   badge: 'Popular',
-  //   desc: 'Voluminous, glossy blowout with salon finish.',
-  //   imgs: [],
-  //   info: [
-  //     'Round-brush technique[cite: 1]',
-  //     'Incredible volume[cite: 1]',
-  //     'Luxurious wash[cite: 1]',
-  //     'Long-lasting shine[cite: 1]'
-  //   ],
-  //   reviewCount: 500,
-  //   reviews: [
-  //     { name: 'Stella H.', stars: 5, date: 'Mar 2025', text: 'My hair has so much bounce and the shine lasted for three whole days!' },
-  //     { name: 'Amara C.', stars: 5, date: 'Feb 2025', text: 'The round-brush technique they use is superior. Salon finish at its best.' },
-  //     { name: 'Liza D.', stars: 5, date: 'Jan 2025', text: 'The volume is insane! I felt like a movie star leaving the salon.' }
-  //   ]
-  // },
-  // {
-  //   id: 16,
-  //   name: 'Keratin Smoothing Treatment',
-  //   category: 'Hair Care',
-  //   price: '₱4,500',
-  //   priceNum: 4500,
-  //   badge: '',
-  //   desc: 'Frizz-reducing treatment for smooth, shiny hair.',
-  //   imgs: [],
-  //   info: [
-  //     'Eliminate frizz[cite: 1]',
-  //     'Reduce styling time[cite: 1]',
-  //     'Deep-conditioning protein[cite: 1]',
-  //     'Smooth for 3 months[cite: 1]'
-  //   ],
-  //   reviewCount: 340,
-  //   reviews: [
-  //     { name: 'Grace E.', stars: 5, date: 'Apr 2025', text: 'Total game changer for my frizzy hair. It cuts my morning routine in half.' },
-  //     { name: 'Renee T.', stars: 5, date: 'Jan 2025', text: 'My hair feels so silky and manageable even in this humidity.' },
-  //     { name: 'Mila S.', stars: 5, date: 'Dec 2024', text: 'Worth every cent. My hair stays smooth even after a workout!' }
-  //   ]
-  // },
-  // {
-  //   id: 17,
-  //   name: 'Scalp Detox & Massage',
-  //   category: 'Hair Care',
-  //   price: '₱1,200',
-  //   priceNum: 1200,
-  //   badge: '',
-  //   desc: 'Deep cleanse and relaxing scalp massage.',
-  //   imgs: [],
-  //   info: [
-  //     'Remove product buildup',
-  //     'Stimulate blood flow',
-  //     'Healthy growth reset',
-  //     'Ultimate relaxation'
-  //   ],
-  //   reviewCount: 200,
-  //   reviews: [
-  //     { name: 'Zoe K.', stars: 5, date: 'Mar 2025', text: 'The scalp massage was so relaxing I almost fell asleep. My scalp feels so clean!' },
-  //     { name: 'Phoebe L.', stars: 5, date: 'Feb 2025', text: 'Highly recommend if you use a lot of dry shampoo. The detox is exactly what I needed.' },
-  //     { name: 'Cora J.', stars: 5, date: 'Jan 2025', text: 'My hair feels lighter and so much healthier after just one detox session.' }
-  //   ]
-  // },
-  // {
-  //   id: 18,
-  //   name: 'Custom Balayage & Toning',
-  //   category: 'Hair Care',
-  //   price: '₱6,000',
-  //   priceNum: 6000,
-  //   badge: 'Premium',
-  //   desc: 'Hand-painted highlights with custom toning.',
-  //   imgs: [],
-  //   info: [
-  //     'Hand-painted technique',
-  //     'Sun-kissed highlights',
-  //     'Beautiful grow out',
-  //     'Custom toning session'
-  //   ],
-  //   reviewCount: 290,
-  //   reviews: [
-  //     { name: 'Luna P.', stars: 5, date: 'Mar 2025', text: "Best balayage I've ever had. The color looks so natural and the toning is spot on." },
-  //     { name: 'Claire S.', stars: 5, date: 'Feb 2025', text: "I've been getting balayage for years and this is by far the best result." },
-  //     { name: 'Sienna W.', stars: 5, date: 'Jan 2025', text: 'The blend is perfect. I love how it grows out without any harsh lines.' }
-  //   ]
-  // },
-  // {
-  //   id: 19,
-  //   name: 'Deep Cleansing Facial',
-  //   category: 'Skin Care',
-  //   price: '₱1,800',
-  //   priceNum: 1800,
-  //   badge: '',
-  //   desc: 'Thorough facial with extractions and exfoliation.',
-  //   imgs: [],
-  //   info: [
-  //     'Thorough extractions',
-  //     'Professional exfoliation',
-  //     'Clear congested pores',
-  //     'Balanced complexion'
-  //   ],
-  //   reviewCount: 270,
-  //   reviews: [
-  //     { name: 'Heidi B.', stars: 5, date: 'Apr 2025', text: 'The extractions were thorough but gentle. My skin hasn’t been this clear in months.' },
-  //     { name: 'Jules F.', stars: 4, date: 'Mar 2025', text: 'Excellent exfoliation and my pores look so much smaller.' },
-  //     { name: 'Brie T.', stars: 5, date: 'Feb 2025', text: 'I walked out with a glowing, balanced complexion. Truly deep cleansing.' }
-  //   ]
-  // },
-  // {
-  //   id: 20,
   //   name: 'Glow-Boost Chemical Peel',
   //   category: 'Skin Care',
   //   price: '₱2,200',
   //   priceNum: 2200,
-  //   badge: '',
-  //   desc: 'Brightens and smooths skin tone.',
-  //   imgs: [],
-  //   info: [
-  //     'Acid treatment',
-  //     'Reveal brighter tone',
-  //     'Reduce hyperpigmentation',
-  //     'Smooth fine lines'
+  //   badge: 'New',
+  //   desc: 'An advanced exfoliating treatment designed to resurface the skin and reveal a luminous complexion.',
+  //   imgs: [
+  //     'https://tinyurl.com/4uh8xnf4',
+  //     'https://tinyurl.com/34ezxe59',
+  //     'https://images.pexels.com/photos/4586717/pexels-photo-4586717.jpeg',
+  //     'https://images.pexels.com/photos/3985323/pexels-photo-3985323.jpeg',
   //   ],
-  //   reviewCount: 190,
+  //   info: [
+  //     'Gentle yet effective resurfacing',
+  //     'Targeted hyperpigmentation reduction',
+  //     'Reveals a youthful, bright glow',
+  //     'Minimal downtime required'
+  //   ],
+  //   reviewCount: 64,
   //   reviews: [
-  //     { name: 'Audrey N.', stars: 5, date: 'Feb 2025', text: 'My hyperpigmentation is visibly fading after just one session!' },
-  //     { name: 'Bella M.', stars: 5, date: 'Jan 2025', text: 'My skin tone is so much more even and glowing. Worth every penny.' },
-  //     { name: 'Tess P.', stars: 4, date: 'Dec 2024', text: 'Slight tingling during the process but the results are absolutely worth it.' }
+  //     { name: 'Carla R.', stars: 5, date: 'Apr 09, 2025', text: 'My skin looks incredibly refreshed and clear.' },
+  //     { name: 'Nina K.', stars: 5, date: 'Oct 30, 2025', text: 'Perfect for getting rid of dullness before a big event.' },
+  //     { name: 'Sara O.', stars: 5, date: 'Dec 15, 2025', text: 'I noticed a huge difference in my skin texture after one session.' }
   //   ]
   // },
+  {
+    id: 11,
+    name: 'Luxury Spa Pedicure',
+    category: 'Nail Care',
+    price: '₱950',
+    priceNum: 950,
+    badge: null,
+    desc: 'An indulgent foot treatment featuring a rejuvenating soak, exfoliation, and a hydrating mask.',
+    imgs: [
+      'https://tinyurl.com/ydue6sec',
+      'https://images.pexels.com/photos/19695950/pexels-photo-19695950.jpeg',
+      'https://images.pexels.com/photos/19695978/pexels-photo-19695978.jpeg',
+      'https://images.pexels.com/photos/19695966/pexels-photo-19695966.jpeg'
+    ],
+    info: [
+      'Aromatic mineral foot soak',
+      'Sugar scrub exfoliation',
+      'Deeply hydrating foot mask',
+      'Includes extended foot massage'
+    ],
+    reviewCount: 128,
+    reviews: [
+      { name: 'Sofia L.', stars: 5, date: 'May 11, 2025', text: 'Pure bliss from start to finish.' },
+      { name: 'Mia V.', stars: 5, date: 'Aug 04, 2025', text: 'My feet feel like silk. The massage was heavenly.' },
+      { name: 'Elena G.', stars: 5, date: 'Jan 27, 2025', text: 'Highly recommend if you need a moment of total relaxation.' }
+    ]
+  },
+  {
+    id: 12,
+    name: 'Bridal Glam Experience',
+    category: 'Makeup',
+    price: '₱5,500',
+    priceNum: 5500,
+    badge: 'Premium',
+    desc: 'Comprehensive bridal artistry including a pre-wedding consultation and waterproof finish.',
+    imgs: [
+      'https://images.pexels.com/photos/6530713/pexels-photo-6530713.jpeg',
+      'https://images.pexels.com/photos/6530715/pexels-photo-6530715.jpeg',
+      'https://images.pexels.com/photos/6530714/pexels-photo-6530714.jpeg',
+      'https://images.pexels.com/photos/457703/pexels-photo-457703.jpeg'
+    ],
+    info: [
+      'Personalized style consultation',
+      'Crying-proof, waterproof formula',
+      'Camera-ready bridal finish',
+      'Includes luxury skin prep'
+    ],
+    reviewCount: 340,
+    reviews: [
+      { name: 'Patricia L.', stars: 5, date: 'Mar 10, 2025', text: 'I felt like the most beautiful version of myself on my wedding day.' },
+      { name: 'Diana M.', stars: 5, date: 'Jun 19, 2025', text: 'The makeup didn’t budge through all the tears and dancing.' },
+      { name: 'Lea V.', stars: 5, date: 'Nov 02, 2025', text: 'Incredible service. They truly listened to what I wanted.' }
+    ]
+  },
+  {
+    id: 13,
+    name: 'Microdermabrasion',
+    category: 'Skin Care',
+    price: '₱2,500',
+    priceNum: 2500,
+    badge: null,
+    desc: 'A non-invasive procedure that gently exfoliates the skin to improve texture and clarity.',
+    imgs: [
+      'https://tinyurl.com/5n6z6xfs',
+      'https://images.pexels.com/photos/14438367/pexels-photo-14438367.jpeg',
+      'https://images.pexels.com/photos/34930097/pexels-photo-34930097.jpeg',
+      'https://images.pexels.com/photos/7446690/pexels-photo-7446690.jpeg'
+    ],
+    info: [
+      'Removes dead skin cells effectively',
+      'Improves fine lines and pores',
+      'Stimulates collagen production',
+      'Safe for most skin types'
+    ],
+    reviewCount: 110,
+    reviews: [
+      { name: 'Elena G.', stars: 5, date: 'Jul 21, 2025', text: 'My skin feels so much smoother after just one treatment.' },
+      { name: 'Brie T.', stars: 4, date: 'Sep 05, 2025', text: 'Great results, my pores look significantly smaller.' },
+      { name: 'Lily J.', stars: 5, date: 'Feb 14, 2025', text: 'A must-have for maintaining a healthy complexion.' }
+    ]
+  },
+  {
+    id: 14,
+    name: 'Signature Gel Manicure',
+    category: 'Nail Care',
+    price: '₱800',
+    priceNum: 800,
+    badge: 'Best Seller',
+    desc: 'Expert cuticle care paired with high-performance gel polish for long-lasting brilliance.',
+    imgs: [
+      'https://images.pexels.com/photos/6135696/pexels-photo-6135696.jpeg',
+      'https://images.pexels.com/photos/6135686/pexels-photo-6135686.jpeg',
+      'https://images.pexels.com/photos/332046/pexels-photo-332046.jpeg',
+      'https://images.pexels.com/photos/361754/pexels-photo-361754.jpeg'
+    ],
+    info: [
+      'Precisely detailed cuticle work',
+      'High-shine, mirror-like finish',
+      'Chip-free for up to 3 weeks',
+      'Safe and gentle removal process'
+    ],
+    reviewCount: 450,
+    reviews: [
+      { name: 'Sofia R.', stars: 5, date: 'Dec 08, 2025', text: 'Perfect application every single time.' },
+      { name: 'Beatrice T.', stars: 5, date: 'Aug 30, 2025', text: 'The color selection is amazing and the staff is so careful.' },
+      { name: 'Tina M.', stars: 5, date: 'May 05, 2025', text: 'I won’t go anywhere else for my gel manicures.' }
+    ]
+  },
+  {
+    id: 15,
+    name: 'Custom Balayage & Toning',
+    category: 'Hair Care',
+    price: '₱6,000',
+    priceNum: 6000,
+    badge: null,
+    desc: 'Artistic, hand-painted highlights designed to create a seamless, sun-kissed dimension.',
+    imgs: [
+      'https://tinyurl.com/bdf69zcc',
+      'https://tinyurl.com/h6tszvnr',
+      'https://tinyurl.com/45m4aczd',
+      'https://tinyurl.com/59j3amy7'
+    ],
+    info: [
+      'Bespoke hand-painting technique',
+      'Natural-looking color graduation',
+      'Customized toning for perfect hues',
+      'Low-maintenance grow-out'
+    ],
+    reviewCount: 180,
+    reviews: [
+      { name: 'Sienna W.', stars: 5, date: 'Jan 22, 2025', text: 'The blend is so natural, I get compliments everywhere I go.' },
+      { name: 'Claire S.', stars: 5, date: 'Oct 04, 2025', text: 'Worth every peso. The color is exactly what I wanted.' },
+      { name: 'Luna P.', stars: 5, date: 'Apr 26, 2025', text: 'Expertly done and my hair still feels healthy.' }
+    ]
+  },
+  {
+    id: 16,
+    name: 'Deep Cleansing Facial',
+    category: 'Skin Care',
+    price: '₱1,800',
+    priceNum: 1800,
+    badge: null,
+    desc: 'A clarifying treatment that removes impurities and balances the skin’s natural oils.',
+    imgs: [
+      'https://images.pexels.com/photos/3985331/pexels-photo-3985331.jpeg',
+      'https://images.pexels.com/photos/3985360/pexels-photo-3985360.jpeg',
+      'https://images.pexels.com/photos/3985330/pexels-photo-3985330.jpeg',
+      'https://images.pexels.com/photos/6663374/pexels-photo-6663374.jpeg'
+    ],
+    info: [
+      'Professional-grade extractions',
+      'Detoxifying steam treatment',
+      'Customized botanical mask',
+      'Reduces congestion and breakouts'
+    ],
+    reviewCount: 142,
+    reviews: [
+      { name: 'Heidi B.', stars: 5, date: 'Mar 12, 2025', text: 'My skin feels so clean and light after this.' },
+      { name: 'Jules F.', stars: 5, date: 'Sep 21, 2025', text: 'The extractions were gentle but very thorough.' },
+      { name: 'Aria S.', stars: 4, date: 'Nov 09, 2025', text: 'A great basic facial for keeping skin clear.' }
+    ]
+  },
+  {
+    id: 17,
+    name: 'Personal Makeup Lesson',
+    category: 'Make Up',
+    price: '₱3,200',
+    priceNum: 3200,
+    badge: null,
+    desc: 'A private session to master techniques tailored to your unique facial features and style.',
+    imgs: [
+      'https://images.pexels.com/photos/8092582/pexels-photo-8092582.jpeg',
+      'https://images.pexels.com/photos/8031803/pexels-photo-8031803.jpeg',
+      'https://images.pexels.com/photos/8031807/pexels-photo-8031807.jpeg',
+      'https://images.pexels.com/photos/6954931/pexels-photo-6954931.jpeg'
+    ],
+    info: [
+      'Step-by-step application guidance',
+      'Product and tool recommendations',
+      'Master the perfect daytime look',
+      'Hands-on technique practice'
+    ],
+    reviewCount: 55,
+    reviews: [
+      { name: 'Ruby W.', stars: 5, date: 'Feb 19, 2025', text: 'I finally learned how to do a winged liner that fits my eyes!' },
+      { name: 'Gwen P.', stars: 5, date: 'Aug 07, 2025', text: 'So informative. I feel much more confident with my routine now.' },
+      { name: 'Anne C.', stars: 5, date: 'May 31, 2025', text: 'The tips on foundation application were worth the price alone.' }
+    ]
+  },
+  {
+    id: 18,
+    name: 'Keratin Smoothing Treatment',
+    category: 'Hair Care',
+    price: '₱4,500',
+    priceNum: 4500,
+    badge: null,
+    desc: 'An intensive protein-infused treatment that eliminates frizz and enhances shine.',
+    imgs: [
+      'https://images.pexels.com/photos/23349912/pexels-photo-23349912.jpeg',
+      'https://images.pexels.com/photos/23349904/pexels-photo-23349904.jpeg',
+      'https://images.pexels.com/photos/23349891/pexels-photo-23349891.jpeg',
+      'https://images.pexels.com/photos/6144281/pexels-photo-6144281.jpeg'
+    ],
+    info: [
+      'Reduces styling time significantly',
+      'Intense frizz control for months',
+      'Restores hair protein and health',
+      'Provides a smooth, glossy finish'
+    ],
+    reviewCount: 168,
+    reviews: [
+      { name: 'Grace E.', stars: 5, date: 'Dec 01, 2025', text: 'My hair is so much more manageable in the humidity.' },
+      { name: 'Mila S.', stars: 5, date: 'Mar 28, 2025', text: 'Total game changer for my morning routine.' },
+      { name: 'Renee T.', stars: 4, date: 'Jul 15, 2025', text: 'Lovely results, my hair is silky and shiny.' }
+    ]
+  },
   // {
-  //   id: 21,
+  //   id: 19,
   //   name: 'Hydration Therapy Treatment',
   //   category: 'Skin Care',
   //   price: '₱2,000',
   //   priceNum: 2000,
-  //   badge: '',
-  //   desc: 'Deep hydration with hyaluronic infusion.',
-  //   imgs: [],
-  //   info: [
-  //     'Hyaluronic acid',
-  //     'Oxygen infusion',
-  //     'Plump the skin',
-  //     'Restore moisture barrier'
+  //   badge: null,
+  //   desc: 'A moisture-rich treatment that plumps the skin and restores the moisture barrier.',
+  //   imgs: [
+  //     'https://images.pexels.com/photos/5042588/pexels-photo-5042588.jpeg',
+  //     'https://images.pexels.com/photos/5042622/pexels-photo-5042622.jpeg',
+  //     'https://images.pexels.com/photos/19242406/pexels-photo-19242406.jpeg',
+  //     'https://images.pexels.com/photos/19242406/pexels-photo-19242406.jpeg',
   //   ],
-  //   reviewCount: 210,
+  //   info: [
+  //     'Deep hyaluronic acid infusion',
+  //     'Instantly plumps fine lines',
+  //     'Calms and soothes dry skin',
+  //     'Ideal for post-travel recovery'
+  //   ],
+  //   reviewCount: 78,
   //   reviews: [
-  //     { name: 'Lydia W.', stars: 5, date: 'Mar 2025', text: 'The oxygen infusion made my skin look so plump and hydrated instantly.' },
-  //     { name: 'Nora D.', stars: 5, date: 'Feb 2025', text: 'Perfect treatment for dry skin. My moisture barrier feels completely restored.' },
-  //     { name: 'Mila G.', stars: 5, date: 'Jan 2025', text: 'I felt so hydrated and refreshed. My fine lines from dehydration completely vanished.' }
+  //     { name: 'Lydia W.', stars: 5, date: 'Jun 07, 2025', text: 'My skin looks so dewy and hydrated.' },
+  //     { name: 'Nora D.', stars: 5, date: 'Sep 13, 2025', text: 'Perfect for the dry season. My skin feels so soft.' },
+  //     { name: 'Mila G.', stars: 5, date: 'Jan 05, 2025', text: 'So relaxing and my skin looks great without makeup.' }
+  //   ]
+  // },
+  // {
+  //   id: 20,
+  //   name: 'Custom Nail Artistry',
+  //   category: 'Nail Care',
+  //   price: '₱1,300',
+  //   priceNum: 1300,
+  //   badge: null,
+  //   desc: 'Unique, hand-painted nail designs ranging from minimalist accents to intricate art.',
+  //   imgs: [
+  //     'https://tinyurl.com/4nzmm2te',
+  //     'https://images.pexels.com/photos/8809259/pexels-photo-8809259.jpeg',
+  //     'https://images.pexels.com/photos/3997357/pexels-photo-3997357.jpeg',
+  //     'https://images.pexels.com/photos/34930139/pexels-photo-34930139.jpeg'
+  //   ],
+  //   info: [
+  //     'Bespoke hand-painted designs',
+  //     'Minimalist to complex patterns',
+  //     'High-quality pigmented polishes',
+  //     'Showcases individual style'
+  //   ],
+  //   reviewCount: 205,
+  //   reviews: [
+  //     { name: 'Aria S.', stars: 5, date: 'Oct 11, 2025', text: 'The detail in the art is absolutely stunning.' },
+  //     { name: 'Chloe B.', stars: 5, date: 'Apr 25, 2025', text: 'I brought a photo and they recreated it perfectly.' },
+  //     { name: 'Sam N.', stars: 5, date: 'Feb 14, 2025', text: 'Always get so many compliments on my nails.' }
+  //   ]
+  // },
+  // {
+  //   id: 21,
+  //   name: 'Scalp Detox & Massage',
+  //   category: 'Hair Care',
+  //   price: '₱1,200',
+  //   priceNum: 1200,
+  //   badge: null,
+  //   desc: 'A therapeutic treatment to cleanse the scalp of buildup and stimulate blood flow.',
+  //   imgs: [
+  //     'https://tinyurl.com/yaryyyrm',
+  //     'https://images.pexels.com/photos/7755482/pexels-photo-7755482.jpeg',
+  //     'https://images.pexels.com/photos/7755473/pexels-photo-7755473.jpeg',
+  //     'https://images.pexels.com/photos/7755447/pexels-photo-7755447.jpeg'
+  //   ],
+  //   info: [
+  //     'Removes product and oil buildup',
+  //     'Invigorating pressure-point massage',
+  //     'Promotes healthy hair growth',
+  //     'Deeply relaxing experience'
+  //   ],
+  //   reviewCount: 88,
+  //   reviews: [
+  //     { name: 'Zoe K.', stars: 5, date: 'Aug 19, 2025', text: 'The most relaxing 45 minutes of my week.' },
+  //     { name: 'Phoebe L.', stars: 5, date: 'Mar 11, 2025', text: 'My scalp feels so refreshed and clean.' },
+  //     { name: 'Cora J.', stars: 5, date: 'May 07, 2025', text: 'Helped so much with my scalp dryness.' }
   //   ]
   // },
   // {
   //   id: 22,
-  //   name: 'Microdermabrasion',
-  //   category: 'Skin Care',
-  //   price: '₱2,500',
-  //   priceNum: 2500,
-  //   badge: '',
-  //   desc: 'Resurfaces skin for smoother texture.',
-  //   imgs: [],
-  //   info: [
-  //     'Non-invasive resurfacing[cite: 1]',
-  //     'Buff away outer layers[cite: 1]',
-  //     'Improve texture[cite: 1]',
-  //     'Stimulate collagen[cite: 1]'
+  //   name: '"No-Makeup" Natural Look',
+  //   category: 'Make Up',
+  //   price: '₱1,800',
+  //   priceNum: 1800,
+  //   badge: null,
+  //   desc: 'Enhance your features with a lightweight, breathable look that celebrates natural beauty.',
+  //   imgs: [
+  //     'https://images.pexels.com/photos/5178004/pexels-photo-5178004.jpeg',
+  //     'https://images.pexels.com/photos/6954005/pexels-photo-6954005.jpeg',
+  //     'https://images.pexels.com/photos/7984970/pexels-photo-7984970.jpeg',
+  //     'https://images.pexels.com/photos/2328149/pexels-photo-2328149.jpeg'
   //   ],
-  //   reviewCount: 160,
+  //   info: [
+  //     'Focus on glowing skin texture',
+  //     'Subtle feature enhancement',
+  //     'Lightweight, breathable products',
+  //     'Perfect for daily wear or photos'
+  //   ],
+  //   reviewCount: 130,
   //   reviews: [
-  //     { name: 'Erika Q.', stars: 5, date: 'Apr 2025', text: 'The texture of my skin is so much smoother. It feels like I have a brand new face!' },
-  //     { name: 'Ivy H.', stars: 5, date: 'Mar 2025', text: 'A great non-invasive way to get rid of dull skin and boost collagen.' },
-  //     { name: 'Demi L.', stars: 5, date: 'Feb 2025', text: 'My skin texture has improved drastically. It’s so much firmer and smoother.' }
+  //     { name: 'Lily J.', stars: 5, date: 'Dec 17, 2025', text: 'I looked like myself, just more polished and awake.' },
+  //     { name: 'Sara O.', stars: 5, date: 'Sep 03, 2025', text: 'The perfect glowy finish. I love this for headshots.' },
+  //     { name: 'Tina M.', stars: 4, date: 'Jun 11, 2025', text: 'Very fresh and natural. Exactly what I wanted.' }
   //   ]
   // }
 ];

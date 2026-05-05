@@ -1,51 +1,41 @@
-import { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
-import type { FaqItem } from '../../../../backend/types/faqs.ts';
-import { Header } from '../../Components/Header.js';
-import { Footer } from '../../Components/Footer.js';
+import { useState } from 'react';
+import { Header } from '../../Components/Header';
+import { Footer } from '../../Components/Footer';
+import { accountPayments } from './faqs/account-payments';
+import { appointmentsBooking } from './faqs/appointments-booking';
+import { ordersDelivery } from './faqs/orders-delivery';
+import { productsAftercare } from './faqs/products-aftercare';
+import { servicesPricing } from './faqs/services-pricing';
+import { shippingReturns } from './faqs/shipping-returns';
 import './Faqs.css';
 
 interface FAQCategory {
   id: string;
   title: string;
   em: string;
-  items: FaqItem[];
+  items: { id: number; question: string; answer: string }[];
 }
 
 const FAQ_CATEGORIES: FAQCategory[] = [
-  { id: 'appointments-booking', title: 'Appointments', em: '& Booking', items: [] },
-  { id: 'services-pricing', title: 'Services', em: '& Pricing', items: [] },
-  { id: 'products-aftercare', title: 'Products', em: '& Aftercare', items: [] },
-  { id: 'orders-delivery', title: 'Orders', em: '& Delivery', items: [] },
-  { id: 'shipping-returns', title: 'Shipping', em: '& Returns', items: [] },
-  { id: 'account-payments', title: 'Account', em: '& Payments', items: [] },
+  { id: 'appointments-booking', title: 'Appointments', em: '& Booking', items: appointmentsBooking },
+  { id: 'services-pricing',     title: 'Services',     em: '& Pricing',  items: servicesPricing },
+  { id: 'products-aftercare',   title: 'Products',     em: '& Aftercare',items: productsAftercare },
+  { id: 'orders-delivery',      title: 'Orders',       em: '& Delivery', items: ordersDelivery },
+  { id: 'shipping-returns',     title: 'Shipping',     em: '& Returns',  items: shippingReturns },
+  { id: 'account-payments',     title: 'Account',      em: '& Payments', items: accountPayments },
 ];
 
-function ItemComp({ item }: { item: FaqItem }) {
+function ItemComp({ item }: { item: { id: number; question: string; answer: string } }) {
   const [open, setOpen] = useState(false);
-  const bodyRef = useRef<HTMLDivElement>(null);
-  const innerRef = useRef<HTMLDivElement>(null);
-
-  const toggle = () => {
-    const body = bodyRef.current;
-    const inner = innerRef.current;
-
-    if (!body || !inner) return;
-
-    if (!open) {
-      body.style.height = inner.offsetHeight + 'px';
-    } else {
-      body.style.height = body.offsetHeight + 'px';
-      requestAnimationFrame(() => requestAnimationFrame(() => {
-        body.style.height = '8px';
-      }))
-    }
-    setOpen(prev => !prev);
-  }
 
   return (
     <div className={`faq-item${open ? ' open' : ''}`}>
-      <button className="faq-q" type="button" onClick={toggle}>
+      <button
+        className="faq-q"
+        type="button"
+        onClick={() => setOpen(prev => !prev)}
+        aria-expanded={open}
+      >
         {item.question}
         <span className="faq-icon">
           <svg viewBox="0 0 14 14" fill="none">
@@ -54,13 +44,11 @@ function ItemComp({ item }: { item: FaqItem }) {
           </svg>
         </span>
       </button>
-      <div className="faq-body" ref={bodyRef} style={{ height: '0px' }}>
-        <div className="faq-inner" ref={innerRef}>
-          {item.answer}
-        </div>
+      <div className="faq-body">
+        <div className="faq-inner">{item.answer}</div>
       </div>
     </div>
-  )
+  );
 }
 
 function FAQCategory({ category }: { category: FAQCategory }) {
@@ -75,39 +63,25 @@ function FAQCategory({ category }: { category: FAQCategory }) {
         <ItemComp key={item.id} item={item} />
       ))}
     </div>
-  )
+  );
 }
 
 export function Faqs() {
-  const [categories, setCategories] = useState<FAQCategory[]>(FAQ_CATEGORIES);
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState('all');
 
-  const API = import.meta.env.VITE_API_URL;
-
-  useEffect(() => {
-    axios.get(`${API}/api/faqs`)
-      .then(res => {
-        console.log('FAQ data:', res.data);
-        const data = res.data;
-        setCategories([
-          { id: 'appointments-booking', title: 'Appointments', em: '& Booking', items: data.appointmentsBooking ?? [] },
-          { id: 'services-pricing', title: 'Services', em: '& Pricing', items: data.servicesPricing ?? [] },
-          { id: 'products-aftercare', title: 'Products', em: '& Aftercare', items: data.productsAftercare ?? [] },
-          { id: 'orders-delivery', title: 'Orders', em: '& Delivery', items: data.ordersDelivery ?? [] },
-          { id: 'shipping-returns', title: 'Shipping', em: '& Returns', items: data.shippingReturns ?? [] },
-          { id: 'account-payments', title: 'Account', em: '& Payments', items: data.accountPayments ?? [] },
-        ])
-      })
-      .catch(err => console.log(err));
-  }, [])
-
-  const filtered = categories.filter(cat => filter === 'all' || cat.id === filter)
+  const filtered = FAQ_CATEGORIES
+    .filter(cat => filter === 'all' || cat.id === filter)
     .map(cat => ({
       ...cat,
-      items: cat.items.filter(item => !search || item.question.toLowerCase().includes(search.toLowerCase()) ||
-        item.answer.toLowerCase().includes(search.toLowerCase()))
-    })).filter(cat => cat.items.length > 0)
+      items: cat.items.filter(
+        item =>
+          !search ||
+          item.question.toLowerCase().includes(search.toLowerCase()) ||
+          item.answer.toLowerCase().includes(search.toLowerCase())
+      ),
+    }))
+    .filter(cat => cat.items.length > 0);
 
   return (
     <div className="fq-page">
@@ -126,9 +100,11 @@ export function Faqs() {
             value={filter}
             onChange={e => setFilter(e.target.value)}
           >
-            <option value="all">All Categories</option>
+            <option value="all">Filter</option>
             {FAQ_CATEGORIES.map(cat => (
-              <option key={cat.id} value={cat.id}>{cat.title} {cat.em}</option>
+              <option key={cat.id} value={cat.id}>
+                {cat.title}
+              </option>
             ))}
           </select>
           <input
@@ -138,7 +114,7 @@ export function Faqs() {
             value={search}
             onChange={e => setSearch(e.target.value)}
           />
-          <button className="search-btn" type="button">
+          <button className="search-btn" type="button" aria-label="Search">
             <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="11" cy="11" r="8" />
               <line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -161,12 +137,12 @@ export function Faqs() {
 
       <div className="faq-page">
         {filtered.length > 0
-          ? filtered.map(cat => <FAQCategory key={cat.id}  category={cat} />)
+          ? filtered.map(cat => <FAQCategory key={cat.id} category={cat} />)
           : <div className="no-results"><p>No results found.</p></div>
         }
       </div>
 
       <Footer />
     </div>
-  )
+  );
 }

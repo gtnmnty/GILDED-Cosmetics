@@ -1,3 +1,9 @@
+/* ── ABOUT US PAGE ── */
+.ab-page * {
+  box-sizing: border-box;
+}
+
+/* ── HERO ── */
 .ab-page .hero {
   min-height: 72vh;
   background: linear-gradient(160deg, var(--deep) 0%, var(--wine) 55%, var(--mauve) 100%);
@@ -18,12 +24,13 @@
   background:
     radial-gradient(ellipse at 30% 60%, rgba(249, 219, 189, .18) 0%, transparent 60%),
     radial-gradient(ellipse at 80% 20%, rgba(255, 165, 171, .12) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .ab-page .hero-ornament {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.1rem;
+  font-size: clamp(.75rem, 2.5vw, 1.1rem);
   font-weight: 300;
   letter-spacing: .4em;
   color: var(--rose);
@@ -35,7 +42,7 @@
 
 .ab-page .hero h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3.5rem, 7vw, 6rem);
+  font-size: clamp(2.4rem, 7vw, 6rem);
   font-weight: 300;
   letter-spacing: .06em;
   color: var(--white);
@@ -43,6 +50,7 @@
   text-transform: uppercase;
   position: relative;
   animation: fadeUp .8s .2s ease both;
+  word-break: break-word;
 }
 
 .ab-page .hero h1 em {
@@ -60,7 +68,7 @@
 
 .ab-page .hero-sub {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  font-size: clamp(1.25rem, 3.5vw, 3.5rem);
   font-weight: 300;
   font-style: italic;
   color: var(--blush);
@@ -72,11 +80,12 @@
 .ab-page .accordion-section {
   max-width: 1280px;
   margin: 80px auto;
-  padding: 0;
+  padding: 0 5vw;
+  width: 100%;
 }
 
 .ab-page .accordion-section-label {
-  font-size: .75rem;
+  font-size: clamp(.65rem, 2vw, .75rem);
   letter-spacing: .35em;
   text-transform: uppercase;
   color: var(--mauve);
@@ -104,6 +113,7 @@
   text-align: left;
   color: var(--deep);
   transition: color .3s;
+  gap: 12px;
 }
 
 .ab-page .accordion-header:hover {
@@ -112,14 +122,16 @@
 
 .ab-page .accordion-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.6rem, 3vw, 3rem);
+  font-size: clamp(1.2rem, 3vw, 3rem);
   font-weight: 400;
   letter-spacing: .04em;
+  flex: 1;
+  min-width: 0;
 }
 
 .ab-page .accordion-icon {
-  width: 36px;
-  height: 36px;
+  width: clamp(28px, 5vw, 36px);
+  height: clamp(28px, 5vw, 36px);
   flex-shrink: 0;
   border: 1px solid var(--mauve);
   border-radius: 50%;
@@ -127,7 +139,6 @@
   align-items: center;
   justify-content: center;
   transition: background .35s, transform .4s;
-  margin-left: 20px;
 }
 
 .ab-page .accordion-icon svg {
@@ -150,7 +161,6 @@
   stroke: var(--white);
 }
 
-/* height-based — smooth, no jump */
 .ab-page .accordion-body {
   overflow: hidden;
   height: 0;
@@ -162,11 +172,11 @@
 }
 
 .ab-page .accordion-inner p {
-  font-size: 1.5rem;
+  font-size: clamp(.9rem, 2vw, 1.5rem);
   font-weight: 300;
   line-height: 1.8;
   color: #5a2a40;
-  padding-right: 56px;
+  padding-right: clamp(0px, 4vw, 56px);
 }
 
 /* ── TESTIMONIALS ── */
@@ -177,7 +187,7 @@
 
 .ab-page .section-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.5rem, 4vw, 3.75rem);
+  font-size: clamp(1.8rem, 4vw, 3.75rem);
   font-weight: 300;
   letter-spacing: .08em;
   color: var(--deep);
@@ -206,13 +216,14 @@
 .ab-page .testimonial-card {
   background: var(--white);
   border-radius: 2px;
-  padding: 36px 28px;
+  padding: clamp(20px, 4vw, 36px) clamp(16px, 3vw, 28px);
   text-align: left;
   box-shadow: 0 4px 32px rgba(69, 9, 32, .08);
   position: relative;
   overflow: hidden;
   transition: transform .3s, box-shadow .3s;
   flex: 0 0 calc(33.333% - 16px);
+  min-width: 0;
 }
 
 .ab-page .testimonial-card:hover {
@@ -230,11 +241,13 @@
   top: -10px;
   left: 16px;
   line-height: 1;
+  pointer-events: none;
 }
 
 .ab-page .testimonial-avatar {
   width: 44px;
   height: 44px;
+  flex-shrink: 0;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--rose), var(--wine));
   display: flex;
@@ -247,7 +260,7 @@
 }
 
 .ab-page .testimonial-name {
-  font-size: .85rem;
+  font-size: clamp(.75rem, 2vw, .85rem);
   font-weight: 500;
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -262,7 +275,7 @@
 }
 
 .ab-page .testimonial-text {
-  font-size: 1rem;
+  font-size: clamp(.85rem, 2vw, 1rem);
   font-weight: 300;
   line-height: 1.75;
   color: #5a2a40;
@@ -278,6 +291,7 @@
 .ab-page .testimonial-meta {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .ab-page .testimonials-pagination {
@@ -285,6 +299,7 @@
   justify-content: center;
   gap: 10px;
   margin-top: 36px;
+  flex-wrap: wrap;
 }
 
 .ab-page .dot {
@@ -312,7 +327,7 @@
 
 .ab-page .contact-intro {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 5vw, .5rem);
+  font-size: clamp(1.4rem, 4vw, 2.8rem);
   font-style: italic;
   color: var(--deep);
   margin-bottom: 3rem;
@@ -327,16 +342,17 @@
 
 .ab-page .contact-btn {
   font-family: 'Jost', sans-serif;
-  font-size: .8rem;
+  font-size: clamp(.7rem, 2vw, .8rem);
   letter-spacing: .25em;
   text-transform: uppercase;
-  padding: 14px 28px;
+  padding: clamp(10px, 2vw, 14px) clamp(14px, 3vw, 28px);
   border: 1px solid var(--wine);
   color: var(--wine);
   background: transparent;
   text-decoration: none;
   cursor: pointer;
   transition: background .3s, color .3s, transform .2s;
+  white-space: nowrap;
 }
 
 .ab-page .contact-btn:hover {
@@ -345,105 +361,12 @@
   transform: translateY(-2px);
 }
 
-/* ── FOOTER ── */
-footer {
-  background: var(--dark);
-  padding: 5rem 7% 3rem;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.ab-page .footer-brand {
-  text-align: center;
-  margin-bottom: 4rem;
-  padding-bottom: 2.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.ab-page .footer-brand h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem;
-  font-weight: 300;
-  letter-spacing: 0.25em;
-  color: var(--white);
-  text-transform: uppercase;
-}
-
-.ab-page .footer-brand p {
-  font-size: 0.7rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  font-weight: 300;
-  color: var(--gold);
-  margin-top: 0.3rem;
-}
-
-.ab-page .footer-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  margin-bottom: 3.5rem;
-}
-
-.ab-page .footer-col h5 {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--white);
-  margin-bottom: 1.4rem;
-}
-
-.ab-page .footer-col ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
-
-.ab-page .footer-col ul li a,
-.ab-page .footer-col ul li {
-  font-size: 0.8rem;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.55);
-  text-decoration: none;
-  line-height: 1.6;
-  transition: color 0.3s;
-}
-
-.ab-page .footer-col ul li a:hover {
-  color: var(--gold);
-}
-
-.ab-page .footer-col .contact-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.55);
-  margin-bottom: 0.5rem;
-}
-
-.ab-page .footer-col .contact-icon {
-  font-size: 0.85rem;
-  margin-top: 1px;
-}
-
-.ab-page .footer-bottom {
-  text-align: center;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.3);
-}
-
 /* ── ANIMATIONS ── */
 @keyframes fadeUp {
   from {
     opacity: 0;
     transform: translateY(28px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -452,23 +375,153 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  .testimonial-card {
+  .ab-page .testimonial-card {
     flex: 0 0 calc(50% - 12px);
   }
 }
 
-@media (max-width: 580px) {
-  .testimonial-card {
-    flex: 0 0 100%;
+@media (max-width: 640px) {
+  .ab-page .accordion-inner p {
+    padding-right: 0;
   }
 }
 
-@media (max-width: 640px) {
-  .nav-links {
-    display: none;
+@media (max-width: 600px) {
+  .ab-page .hero {
+    padding: 60px 6vw 50px;
+    min-height: 60vh;
   }
 
-  .accordion-inner p {
+  .ab-page .hero-ornament {
+    letter-spacing: .25em;
+    margin-bottom: 16px;
+  }
+
+  .ab-page .hero h1 {
+    letter-spacing: .04em;
+  }
+
+  .ab-page .hero-divider {
+    margin: 20px auto;
+    width: 60px;
+  }
+
+  .ab-page .accordion-section {
+    margin: 50px auto;
+    padding: 0 6vw;
+  }
+
+  .ab-page .accordion-header {
+    padding: 18px 0;
+  }
+
+  .ab-page .testimonials {
+    padding: 60px 6vw;
+  }
+
+  .ab-page .testimonial-card {
+    flex: 0 0 100%;
+  }
+
+  .ab-page .contact-section {
+    padding: 60px 6vw;
+  }
+
+  .ab-page .contact-buttons {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 300px) {
+  .ab-page .hero {
+    padding: 48px 4vw 40px;
+    min-height: 55vh;
+  }
+
+  .ab-page .hero-ornament {
+    letter-spacing: .15em;
+    font-size: .7rem;
+    margin-bottom: 12px;
+  }
+
+  .ab-page .hero h1 {
+    font-size: 2rem;
+    letter-spacing: .03em;
+  }
+
+  .ab-page .hero-sub {
+    font-size: 1.1rem;
+    letter-spacing: .04em;
+  }
+
+  .ab-page .accordion-section {
+    padding: 0 4vw;
+    margin: 40px auto;
+  }
+
+  .ab-page .accordion-title {
+    font-size: 1.1rem;
+  }
+
+  .ab-page .accordion-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .ab-page .accordion-icon svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  .ab-page .accordion-inner p {
+    font-size: .85rem;
     padding-right: 0;
+  }
+
+  .ab-page .testimonials {
+    padding: 48px 4vw;
+  }
+
+  .ab-page .section-title {
+    font-size: 1.6rem;
+  }
+
+  .ab-page .testimonial-card {
+    flex: 0 0 100%;
+    padding: 18px 14px;
+  }
+
+  .ab-page .testimonial-card::before {
+    font-size: 4rem;
+  }
+
+  .ab-page .testimonial-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .ab-page .testimonial-name {
+    font-size: .7rem;
+    letter-spacing: .1em;
+  }
+
+  .ab-page .testimonial-text {
+    font-size: .82rem;
+  }
+
+  .ab-page .contact-section {
+    padding: 48px 4vw;
+  }
+
+  .ab-page .contact-intro {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .ab-page .contact-btn {
+    font-size: .65rem;
+    padding: 10px 12px;
+    letter-spacing: .15em;
   }
 }

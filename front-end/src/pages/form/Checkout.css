@@ -456,7 +456,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 12px;
-  padding: 1rem clamp(16px, 3vw, 24px);
+  padding: 1rem 0;
 }
 
 /* ── NOTE BOX ── */
