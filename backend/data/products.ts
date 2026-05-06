@@ -274,16 +274,16 @@ export const products: ProductItem[] = [
     badge: 'Essential',
     desc: 'A soothing oil blend that instantly recovers and softens stressed cuticles.',
     imgs: [
-      'https://images.pexels.com/photos/7321649/pexels-photo-7321649.jpeg',
-      'https://images.pexels.com/photos/7321646/pexels-photo-7321646.jpeg',
-      'https://images.pexels.com/photos/7321720/pexels-photo-7321720.jpeg',
-      'https://images.pexels.com/photos/7321655/pexels-photo-7321655.jpeg'
+      'https://images.pexels.com/photos/14438226/pexels-photo-14438226.jpeg',
+      'https://images.pexels.com/photos/14438227/pexels-photo-14438227.jpeg',
+      'https://images.pexels.com/photos/9264721/pexels-photo-9264721.jpeg',
+      'https://images.pexels.com/photos/8131580/pexels-photo-8131580.jpeg'
     ],
     info: [
-      'Deeply hydrates and conditions the cuticle area.',
-      'Rich in natural Vitamin E and jojoba oils.',
-      'Features a convenient dropper for hygienic application.',
-      'Perfect for post-manicure care or daily maintenance.'
+      'Deeply purifies without stripping',
+      'Calming botanical extract blend',
+      'pH-balanced for sensitive skin',
+      'Cloud-like, airy foam texture'
     ],
     reviewCount: 45,
     reviews: [
