@@ -274,10 +274,10 @@ export const products: ProductItem[] = [
     badge: 'Essential',
     desc: 'A soothing oil blend that instantly recovers and softens stressed cuticles.',
     imgs: [
-      'images/cutex5/cuticle-1.png',
-      'images/cutex5/cuticle-2.png',
-      'images/cutex5/cuticle-3.png',
-      'images/cutex5/cuticle-4.png'
+      'https://images.pexels.com/photos/7321649/pexels-photo-7321649.jpeg',
+      'https://images.pexels.com/photos/7321646/pexels-photo-7321646.jpeg',
+      'https://images.pexels.com/photos/7321720/pexels-photo-7321720.jpeg',
+      'https://images.pexels.com/photos/7321655/pexels-photo-7321655.jpeg'
     ],
     info: [
       'Deeply hydrates and conditions the cuticle area.',
