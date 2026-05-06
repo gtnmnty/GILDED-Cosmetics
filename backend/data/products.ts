@@ -267,7 +267,7 @@ export const products: ProductItem[] = [
   },
   {
     id: 12,
-    name: 'Cuticle Revitalizing Oil',
+    name: 'Gentle Foaming Cleanser',
     category: 'Nail Care',
     price: '₱450',
     priceNum: 450,
