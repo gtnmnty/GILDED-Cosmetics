@@ -14,5 +14,5 @@ export interface UserAccount {
   appointments: Appointment[];
   cart: CartItem[];
   address: Address | null;
-  paymentMethod: PaymentMethod | null;
+  paymentMethods: PaymentMethod[] | null;
 }

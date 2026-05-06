@@ -44,6 +44,13 @@ export const Checkout: React.FC = () => {
   // Card
   const [cardNumber, setCardNumber] = useState('');
   const [cardExp, setCardExp] = useState('');
+  const [cardCvv, setCardCvv] = useState('');
+
+  // E-wallet / PayPal
+  const [eWalletValue, setEWalletValue] = useState('');
+
+  // Validation errors
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
     const user = (() => {
@@ -127,6 +134,86 @@ export const Checkout: React.FC = () => {
     return { qty: items.reduce((s, i) => s + i.qty, 0), subtotal, shipping, tax, grandTotal: subtotal + shipping + tax };
   })();
 
+  // ── input guards ──
+  const onlyLettersSpaces = (e: React.ChangeEvent<HTMLInputElement>, setter: (v: string) => void) => {
+    const v = e.target.value.replace(/[^a-zA-Z\s'.,-]/g, '');
+    setter(v);
+  };
+
+  const onlyPhone = (e: React.ChangeEvent<HTMLInputElement>, setter: (v: string) => void) => {
+    const v = e.target.value.replace(/[^\d\s+()-]/g, '');
+    setter(v);
+  };
+
+  const onlyCvv = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const v = e.target.value.replace(/\D/g, '').slice(0, payMethod === 'amex' ? 4 : 3);
+    setCardCvv(v);
+  };
+
+  const onlyEWalletPhone = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const v = e.target.value.replace(/[^\d\s+()-]/g, '').slice(0, 13);
+    setEWalletValue(v);
+  };
+
+  // ── validation ──
+  const validate = (): boolean => {
+    const errs: Record<string, string> = {};
+
+    // Shipping
+    if (!shName.trim()) errs.shName = 'Full name is required.';
+    else if (/\d/.test(shName)) errs.shName = 'Name must not contain numbers.';
+
+    if (!shPhone.trim()) errs.shPhone = 'Contact number is required.';
+    else if (!/^[\d\s+()-]{7,15}$/.test(shPhone)) errs.shPhone = 'Enter a valid phone number.';
+
+    if (!shEmail.trim()) errs.shEmail = 'Email is required.';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(shEmail)) errs.shEmail = 'Enter a valid email address.';
+
+    if (!shAddr.trim()) errs.shAddr = 'Shipping address is required.';
+
+    // Card methods
+    if (['visa', 'mastercard', 'amex'].includes(payMethod)) {
+      if (!billName.trim()) errs.billName = 'Billing name is required.';
+      else if (/\d/.test(billName)) errs.billName = 'Name must not contain numbers.';
+
+      if (!billAddr.trim()) errs.billAddr = 'Billing address is required.';
+
+      const digits = cardNumber.replace(/\s/g, '');
+      const expectedLen = payMethod === 'amex' ? 15 : 16;
+      if (!digits) errs.cardNumber = 'Card number is required.';
+      else if (digits.length !== expectedLen) errs.cardNumber = `Must be ${expectedLen} digits.`;
+
+      if (!cardExp.trim()) errs.cardExp = 'Expiration date is required.';
+      else {
+        const parts = cardExp.replace(/\s/g, '').split('/');
+        const mm = parseInt(parts[0] ?? '', 10);
+        const yy = parseInt(parts[1] ?? '', 10);
+        const now = new Date();
+        const fullYear = 2000 + yy;
+        if (!mm || !yy || mm < 1 || mm > 12) errs.cardExp = 'Enter a valid MM / YY.';
+        else if (fullYear < now.getFullYear() || (fullYear === now.getFullYear() && mm < now.getMonth() + 1))
+          errs.cardExp = 'Card has expired.';
+      }
+
+      const cvvLen = payMethod === 'amex' ? 4 : 3;
+      if (!cardCvv) errs.cardCvv = 'CVV is required.';
+      else if (cardCvv.length !== cvvLen) errs.cardCvv = `CVV must be ${cvvLen} digits.`;
+    }
+
+    // E-wallet / PayPal
+    if (['gcash', 'maya'].includes(payMethod)) {
+      if (!eWalletValue.trim()) errs.eWallet = 'Mobile number is required.';
+      else if (!/^[\d\s+()-]{7,13}$/.test(eWalletValue)) errs.eWallet = 'Enter a valid phone number.';
+    }
+    if (payMethod === 'paypal') {
+      if (!eWalletValue.trim()) errs.eWallet = 'PayPal email is required.';
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(eWalletValue)) errs.eWallet = 'Enter a valid email address.';
+    }
+
+    setErrors(errs);
+    return Object.keys(errs).length === 0;
+  };
+
   const handleCardNumber = (e: React.ChangeEvent<HTMLInputElement>) => {
     let v = e.target.value.replace(/\D/g, '').slice(0, 16);
     v = v.replace(/(.{4})/g, '$1 ').trim();
@@ -148,6 +235,7 @@ export const Checkout: React.FC = () => {
 
   const placeOrder = () => {
     if (!items.length) { showToastMsg('No items to place.'); return; }
+    if (!validate()) { showToastMsg('Please fix the errors before proceeding.'); return; }
 
     const currentUser: UserAccount | null = (() => {
       try { return JSON.parse(sessionStorage.getItem('currentUser') ?? 'null'); }
@@ -290,19 +378,23 @@ export const Checkout: React.FC = () => {
             <div className="form-grid">
               <div className="form-group">
                 <label className="form-label">Full Name</label>
-                <input className="form-input" type="text" placeholder="Full Name" value={shName} onChange={e => setShName(e.target.value)} />
+                <input className={`form-input${errors.shName ? ' input-error' : ''}`} type="text" placeholder="Full Name" value={shName} onChange={e => onlyLettersSpaces(e, setShName)} />
+                {errors.shName && <span className="field-error">{errors.shName}</span>}
               </div>
               <div className="form-group">
                 <label className="form-label">Contact No.</label>
-                <input className="form-input" type="tel" placeholder="09XX XXX XXXX" value={shPhone} onChange={e => setShPhone(e.target.value)} />
+                <input className={`form-input${errors.shPhone ? ' input-error' : ''}`} type="tel" placeholder="09XX XXX XXXX" value={shPhone} onChange={e => onlyPhone(e, setShPhone)} />
+                {errors.shPhone && <span className="field-error">{errors.shPhone}</span>}
               </div>
               <div className="form-group full">
                 <label className="form-label">Email Address</label>
-                <input className="form-input" type="email" placeholder="your@email.com" value={shEmail} onChange={e => setShEmail(e.target.value)} />
+                <input className={`form-input${errors.shEmail ? ' input-error' : ''}`} type="email" placeholder="your@email.com" value={shEmail} onChange={e => setShEmail(e.target.value)} />
+                {errors.shEmail && <span className="field-error">{errors.shEmail}</span>}
               </div>
               <div className="form-group full">
                 <label className="form-label">Shipping Address</label>
-                <input className="form-input" type="text" placeholder="Street, Barangay, City, Province, ZIP" value={shAddr} onChange={e => setShAddr(e.target.value)} />
+                <input className={`form-input${errors.shAddr ? ' input-error' : ''}`} type="text" placeholder="Street, Barangay, City, Province, ZIP" value={shAddr} onChange={e => setShAddr(e.target.value)} />
+                {errors.shAddr && <span className="field-error">{errors.shAddr}</span>}
               </div>
             </div>
           </div>
@@ -319,7 +411,7 @@ export const Checkout: React.FC = () => {
                     key={method}
                     className={`pay-tab ${payMethod === method ? 'active' : ''}`}
                     type="button"
-                    onClick={() => setPayMethod(method)}
+                    onClick={() => { setPayMethod(method); setErrors({}); setEWalletValue(''); setCardNumber(''); setCardExp(''); setCardCvv(''); }}
                   >
                     {method === 'cod' ? 'COD' : method.charAt(0).toUpperCase() + method.slice(1)}
                   </button>
@@ -339,29 +431,34 @@ export const Checkout: React.FC = () => {
                     </label>
                     <div className="form-group">
                       <label className="form-label">Billing Full Name</label>
-                      <input className="form-input" type="text" placeholder="Name on card" value={billName} onChange={e => setBillName(e.target.value)} />
+                      <input className={`form-input${errors.billName ? ' input-error' : ''}`} type="text" placeholder="Name on card" value={billName} onChange={e => onlyLettersSpaces(e, setBillName)} />
+                      {errors.billName && <span className="field-error">{errors.billName}</span>}
                     </div>
                     <div className="form-group full">
                       <label className="form-label">Billing Address</label>
-                      <input className="form-input" type="text" placeholder="Billing address" value={billAddr} onChange={e => setBillAddr(e.target.value)} />
+                      <input className={`form-input${errors.billAddr ? ' input-error' : ''}`} type="text" placeholder="Billing address" value={billAddr} onChange={e => setBillAddr(e.target.value)} />
+                      {errors.billAddr && <span className="field-error">{errors.billAddr}</span>}
                     </div>
                     <div className="form-group full">
                       <label className="form-label">Card Number</label>
                       <input
-                        className="form-input" type="text"
-                        placeholder="**** **** **** ****"
+                        className={`form-input${errors.cardNumber ? ' input-error' : ''}`} type="text"
+                        placeholder={payMethod === 'amex' ? '**** ****** *****' : '**** **** **** ****'}
                         maxLength={payMethod === 'amex' ? 17 : 19}
                         value={cardNumber}
                         onChange={payMethod === 'amex' ? handleAmexNumber : handleCardNumber}
                       />
+                      {errors.cardNumber && <span className="field-error">{errors.cardNumber}</span>}
                     </div>
                     <div className="form-group">
                       <label className="form-label">Expiration Date</label>
-                      <input className="form-input" type="text" placeholder="MM / YY" maxLength={7} value={cardExp} onChange={handleExp} />
+                      <input className={`form-input${errors.cardExp ? ' input-error' : ''}`} type="text" placeholder="MM / YY" maxLength={7} value={cardExp} onChange={handleExp} />
+                      {errors.cardExp && <span className="field-error">{errors.cardExp}</span>}
                     </div>
                     <div className="form-group">
                       <label className="form-label">CVV</label>
-                      <input className="form-input" type="password" placeholder="***" maxLength={payMethod === 'amex' ? 4 : 3} />
+                      <input className={`form-input${errors.cardCvv ? ' input-error' : ''}`} type="password" placeholder={payMethod === 'amex' ? '****' : '***'} maxLength={payMethod === 'amex' ? 4 : 3} value={cardCvv} onChange={onlyCvv} />
+                      {errors.cardCvv && <span className="field-error">{errors.cardCvv}</span>}
                     </div>
                   </div>
                 </div>
@@ -375,11 +472,13 @@ export const Checkout: React.FC = () => {
                         {payMethod === 'paypal' ? 'PayPal Email' : `${payMethod.charAt(0).toUpperCase() + payMethod.slice(1)} Number`}
                       </label>
                       <input
-                        className="form-input"
+                        className={`form-input${errors.eWallet ? ' input-error' : ''}`}
                         type={payMethod === 'paypal' ? 'email' : 'tel'}
                         placeholder={payMethod === 'paypal' ? 'your@paypal.com' : '09XX XXX XXXX'}
-                        maxLength={payMethod === 'paypal' ? undefined : 13}
+                        value={eWalletValue}
+                        onChange={payMethod === 'paypal' ? e => setEWalletValue(e.target.value) : onlyEWalletPhone}
                       />
+                      {errors.eWallet && <span className="field-error">{errors.eWallet}</span>}
                     </div>
                   </div>
                 </div>
@@ -401,7 +500,7 @@ export const Checkout: React.FC = () => {
 
             <div className="summary-footer">
               <div className="note-box">
-                <span>Note: Please review all information and order details before proceeding.</span>
+                <span>ℹ️ Note: Please review all information and order details before proceeding.</span>
               </div>
               <div className="summary-footer-btn">
                 <button className="place-order-btn" onClick={placeOrder}>Place Order</button>

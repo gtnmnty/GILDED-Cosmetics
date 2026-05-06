@@ -38,9 +38,9 @@ const offerItems = [
 ]
 
 const galleryImgs = [
-  'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1512207736890-6ffed8a84e8d?w=800&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1571875257727-256c39da42af?w=800&auto=format&fit=crop',
+  'https://images.pexels.com/photos/7755680/pexels-photo-7755680.jpeg',
+  'https://images.pexels.com/photos/5368626/pexels-photo-5368626.jpeg',
+  'https://images.pexels.com/photos/3992861/pexels-photo-3992861.jpeg',
 ]
 
 export function HomePage() {
@@ -142,7 +142,7 @@ export function HomePage() {
 
         <div className="hero-right">
           <div className="hero-circle" aria-hidden="true">
-            <img src='https://images.unsplash.com/photo-1571875257727-256c39da42af?w=800&auto=format&fit=crop' />
+            <img src='https://images.pexels.com/photos/6713324/pexels-photo-6713324.jpeg' />
           </div>
           <div className="rating-badge">
             <span className="star" aria-hidden="true">&#9733;</span>

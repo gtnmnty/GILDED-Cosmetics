@@ -161,8 +161,9 @@ export function Footer() {
           <h5>Quick Links</h5>
           <ul>
             <li><Link to="/services">Services</Link></li>
+            <li><Link to="/products">Products</Link></li>
             <li><Link to="/about-us#au-contact-section">Contact Us</Link></li>
-            <li><Link to="/about-us">About Us</Link></li>
+            <li><a href="/about-us">About Us</a></li>
             <li><Link to="/about-us#testimonials">Reviews</Link></li>
             <li><Link to="/auth" state={{ from: location.pathname }} target="_blank">Log in / Sign Up</Link></li>
           </ul>
@@ -175,7 +176,8 @@ export function Footer() {
             <li><Link to="/account">My Account</Link></li>
             <li><Link to="/orders">Orders</Link></li>
             <li><Link to="/cart">Cart</Link></li>
-            <li><Link to="/shipping">Shipping</Link></li>
+            <li><Link to="/appointments">Appointments</Link></li>
+            <li><Link to="/help">Help &amp; Support</Link></li>
             <li><a href="/help#warranty" target="_blank" rel="noreferrer">Warranty and Return Policy</a></li>
             <li><Link to="/faqs">FAQs</Link></li>
             <li><Link to="/help#privacy">Privacy Policy</Link></li>

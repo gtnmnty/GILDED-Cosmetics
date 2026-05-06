@@ -1,7 +1,6 @@
 export interface ProductItem {
     id: number;
     name: string;
-    brand: string;
     category: string
     price: string;
     priceNum: number;
