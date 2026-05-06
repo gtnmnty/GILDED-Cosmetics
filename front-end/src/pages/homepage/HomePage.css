@@ -346,7 +346,7 @@
   top: 14px;
   left: 14px;
   background: rgb(0, 0, 0);
-  border: 1px solid var(--gold);
+  border: 1px solid var(--dark);
   color: var(--gold);
   font-size: 0.6rem;
   font-weight: 600;

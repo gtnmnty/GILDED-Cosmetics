@@ -8,8 +8,9 @@
     display: none;
     overflow-y: auto;
     overflow-x: hidden;
-    padding: clamp(0.75rem, 3vw, 2rem);
+    padding: clamp(0.25rem, 3vw, 2rem);
     animation: fadeIn 0.3s ease;
+    box-sizing: border-box;
 }
 
 @keyframes fadeIn {
@@ -30,6 +31,7 @@
     border-radius: clamp(0.75rem, 1.5vw, 1.25rem);
     overflow: hidden;
     animation: slideUp 0.35s ease;
+    box-sizing: border-box;
 }
 
 @keyframes slideUp {
@@ -84,27 +86,30 @@
     letter-spacing: 2px;
 }
 
-/* ─── Overlay Body ───────────────────────────────────────── */
+/* ─── Overlay Body ─────────────────────────────────── */
 .overlay-body {
     display: grid;
     grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
 }
 
-/* ─── Image Viewer ───────────────────────────────────────── */
+/* ─── Image Viewer ────────────────────────────────── */
 .image-viewer {
-    padding: clamp(1rem, 2.4vw, 2rem);
+    padding: clamp(0.75rem, 2.4vw, 2rem);
     background: var(--off, #faf5f2);
+    min-width: 0;
+    overflow: hidden;
 }
 
 .big-img {
-    width: 100%;
-    height: clamp(16rem, calc(8rem + 22vw), 26rem);
-    background-size: cover;
-    background-position: center;
-    border-radius: clamp(0.6rem, 1vw, 0.9rem);
-    position: relative;
-    overflow: hidden;
-    transition: background-image 0.4s ease;
+  width: 100%;
+  height: clamp(16rem, calc(8rem + 22vw), 26rem);
+  aspect-ratio: 16 / 9;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: background-image 0.4s ease;
 }
 
 /* ─── Arrow Nav Circles ──────────────────────────────────── */
@@ -179,7 +184,8 @@
 }
 
 .thumb {
-    height: clamp(3.5rem, 8vw, 5rem);
+    flex: 1;
+    aspect-ratio: 4 / 3;
     background-size: cover;
     background-position: center;
     border-radius: clamp(0.4rem, 0.7vw, 0.6rem);
@@ -207,37 +213,47 @@
     border-color: var(--gold);
 }
 
-/* ─── Info Pane ──────────────────────────────────────────── */
+/* ─── Info Pane ──────────────────────────────────── */
 .info-pane {
-    padding: clamp(1.2rem, 2.6vw, 2.25rem);
+    padding: clamp(0.85rem, 2.6vw, 2.25rem);
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    overflow-x: hidden;
     max-height: clamp(32rem, calc(20rem + 30vw), 50rem);
+    min-width: 0;
 }
 
 .overlay-brand {
-    font-size: clamp(0.66rem, calc(0.61rem + 0.12vw), 0.74rem);
+    font-size: clamp(0.6rem, calc(0.55rem + 0.6vw), 0.74rem);
     color: var(--gold);
-    letter-spacing: 2.5px;
+    letter-spacing: clamp(1.5px, 0.5vw, 2.5px);
     text-transform: uppercase;
     margin-bottom: 0.25rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .overlay-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.55rem, calc(1rem + 1.8vw), 2.75rem);
+    font-size: clamp(1.2rem, calc(0.9rem + 2.5vw), 2.75rem);
     font-weight: 400;
     color: var(--navy);
     line-height: 1.15;
     margin-bottom: 0.4rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
 }
 
 .overlay-desc {
-    font-size: clamp(0.78rem, calc(0.73rem + 0.12vw), 0.87rem);
+    font-size: clamp(0.76rem, calc(0.72rem + 0.4vw), 0.87rem);
     color: var(--muted, #9a8070);
     line-height: 1.65;
     margin-bottom: 0.5rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -412,7 +428,7 @@
     gap: clamp(0.65rem, 1vw, 0.9rem);
     margin-top: auto;
     padding-top: clamp(1rem, 1.8vw, 1.5rem);
-    width: 50%;
+    width: 100%;
 }
 
 .overlay-book-btn {
@@ -503,47 +519,50 @@
     box-shadow: 0 2px 16px rgba(69, 9, 32, 0.07);
     border: 1px solid rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .review-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin: 0.75rem 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0.75rem 0 1rem;
 }
 
 .review-nav-btn {
-  background: transparent;
-  border: 1px solid rgba(165, 56, 96, 0.35);
-  color: var(--wine);
-  font-size: 1rem;
-  width: 2.2rem;
-  height: 2.2rem;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s, color 0.2s, opacity 0.2s;
+    background: transparent;
+    border: 1px solid rgba(165, 56, 96, 0.35);
+    color: var(--wine);
+    font-size: 1rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s, opacity 0.2s;
 }
 
 .review-nav-btn:hover {
-  background: var(--wine);
-  color: var(--white);
+    background: var(--wine);
+    color: var(--white);
 }
 
 .review-nav-btn.disabled {
-  opacity: 0.25;
-  cursor: default;
-  pointer-events: none;
+    opacity: 0.25;
+    cursor: default;
+    pointer-events: none;
 }
 
 .review-nav-hint {
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(165, 56, 96, 0.45);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(165, 56, 96, 0.45);
 }
 
 .reviews-list:active {
@@ -570,8 +589,10 @@
 .reviewer-name {
     font-family: 'Jost', sans-serif;
     font-weight: 600;
-    font-size: clamp(0.82rem, calc(0.78rem + 0.1vw), 0.9rem);
+    font-size: clamp(0.78rem, calc(0.72rem + 0.5vw), 0.9rem);
     color: var(--navy);
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .review-date {
@@ -586,10 +607,12 @@
 }
 
 .review-text {
-    font-size: clamp(0.78rem, calc(0.74rem + 0.1vw), 0.86rem);
+    font-size: clamp(0.74rem, calc(0.7rem + 0.4vw), 0.86rem);
     color: #555;
     line-height: 1.65;
     font-style: italic;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 /* ─── Add Review ─────────────────────────────────────────── */
@@ -719,7 +742,9 @@
     opacity: 1;
 }
 
-/* Scoped service overlay rules. Keep these last so product styles cannot bleed in. */
+/* ═══════════════════════════════════════════════════════════
+   SERVICE OVERLAY — scoped rules
+   ═══════════════════════════════════════════════════════════ */
 .service-overlay.overlay {
     position: fixed;
     inset: 0;
@@ -730,8 +755,9 @@
     display: none;
     overflow-y: auto;
     overflow-x: hidden;
-    padding: clamp(0.75rem, 3vw, 2rem);
+    padding: clamp(0.25rem, 3vw, 2rem);
     animation: fadeIn 0.3s ease;
+    box-sizing: border-box;
 }
 
 .service-overlay .overlay-box {
@@ -743,14 +769,15 @@
     animation: slideUp 0.35s ease;
 }
 
+/* ─── TOP BAR: back button + title both left-aligned ──────── */
 .service-overlay .overlay-top-bar {
     background: var(--white);
     padding: clamp(0.85rem, 1.8vw, 1.35rem) clamp(1rem, 2.4vw, 1.8rem);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
-    gap: clamp(0.5rem, 1vw, 0.75rem);
+    gap: clamp(0.35rem, 1.5vw, 1rem);
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
@@ -760,13 +787,16 @@
 }
 
 .service-overlay .image-viewer {
-    padding: clamp(1rem, 2.4vw, 2rem);
+    padding: clamp(0.75rem, 2.4vw, 2rem);
     background: var(--off, #faf5f2);
+    min-width: 0;
+    overflow: hidden;
 }
 
 .service-overlay .big-img {
-    width: 100%;
     height: clamp(16rem, calc(8rem + 22vw), 26rem);
+    width: 100%;
+    aspect-ratio: 16 / 9;
     background-size: cover;
     background-position: center;
     border-radius: clamp(0.6rem, 1vw, 0.9rem);
@@ -782,7 +812,8 @@
 }
 
 .service-overlay .thumb {
-    height: clamp(3.5rem, 8vw, 5rem);
+    flex: 1;
+    aspect-ratio: 4 / 3;
     background-size: cover;
     background-position: center;
     border-radius: clamp(0.4rem, 0.7vw, 0.6rem);
@@ -793,13 +824,15 @@
 }
 
 .service-overlay .info-pane {
-    padding: clamp(1.2rem, 2.6vw, 2.25rem);
+    padding: clamp(0.85rem, 2.6vw, 2.25rem);
     display: flex;
     flex-direction: column;
     align-items: stretch;
     text-align: left;
     overflow-y: auto;
+    overflow-x: hidden;
     max-height: clamp(32rem, calc(20rem + 30vw), 50rem);
+    min-width: 0;
 }
 
 .service-overlay .overlay-rating {
@@ -848,7 +881,8 @@
 }
 
 .service-overlay .action-btns {
-    width: 50%;
+    width: 100%;
+    max-width: 26rem;
 }
 
 .service-overlay .review-area {
@@ -859,6 +893,7 @@
     z-index: 10000;
 }
 
+/* ─── Breakpoint: stack to single column ─────────────────── */
 @media (max-width: 860px) {
     .service-overlay .overlay-body {
         grid-template-columns: 1fr;
@@ -874,9 +909,24 @@
     }
 }
 
+/* ─── Book Now: full width at ≤700px ─────────────────────── */
+@media (max-width: 700px) {
+    .service-overlay .action-btns {
+        width: 100%;
+    }
+
+    .service-overlay .overlay-book-btn {
+        flex: 1 1 100%;
+        width: 100%;
+        padding: clamp(0.8rem, 2.5vw, 1rem) 1rem;
+        font-size: clamp(0.7rem, calc(0.65rem + 0.25vw), 0.82rem);
+    }
+}
+
+/* ─── Small screens: tighten padding & overlay wrapper ───── */
 @media (max-width: 640px) {
     .service-overlay.overlay {
-        padding: 0.4rem;
+        padding: clamp(0px, calc(-0.5rem + 2.5vw), 0.75rem);
     }
 
     .service-overlay .overlay-box {
@@ -884,19 +934,86 @@
     }
 }
 
-@media (max-width: 480px) {
-    .service-overlay .action-btns {
-        display: grid;
-        grid-template-columns: 1fr;
-        width: 100%;
+/* ─── Top bar: shrink text/button at ≤600px ──────────────── */
+@media (max-width: 600px) {
+    .service-overlay .overlay-top-bar {
+        padding: clamp(0.55rem, 2vw, 0.85rem) clamp(0.65rem, 2.5vw, 1rem);
+        gap: clamp(0.35rem, 1.5vw, 0.6rem);
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    .service-overlay .overlay-top-bar {
-        gap: 0.4rem;
+    .service-overlay .back-btn {
+        font-size: clamp(0.58rem, calc(0.5rem + 0.4vw), 0.72rem);
+        padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.85rem);
+        letter-spacing: clamp(0.08em, 0.15em, 0.18em);
+    }
+
+    .service-overlay .overlay-top-title {
+        font-size: clamp(0.62rem, calc(0.55rem + 0.4vw), 0.78rem);
+        letter-spacing: clamp(0.08em, 0.15em, 0.18em);
     }
 }
 
-/* Final service guest-stepper lock: product quantity input styles can remain loaded after navigation. */
+/* ─── Image viewer: fully fluid at ≤320px ────────────────── */
+@media (max-width: 320px) {
+    .service-overlay.overlay {
+        padding: 0;
+    }
+
+    .service-overlay .overlay-box {
+        border-radius: 0;
+    }
+
+    .service-overlay .image-viewer {
+        padding: clamp(0.4rem, 2vw, 0.65rem);
+    }
+
+    .service-overlay .big-img {
+        height: clamp(9rem, calc(3rem + 42vw), 22rem);
+        border-radius: clamp(0.3rem, 1vw, 0.5rem);
+    }
+
+    .service-overlay .thumbnail-bar {
+        grid-template-columns: repeat(auto-fill, minmax(clamp(2.5rem, 18vw, 3.5rem), 1fr));
+        gap: clamp(0.25rem, 1vw, 0.4rem);
+    }
+
+    .service-overlay .info-pane {
+        padding: clamp(0.6rem, 2.5vw, 0.9rem);
+    }
+
+    .service-overlay .overlay-top-bar {
+        padding: 0.45rem 0.6rem;
+        gap: 0.3rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .service-overlay .back-btn {
+        font-size: 0.55rem;
+        padding: 0.28rem 0.45rem;
+        letter-spacing: 0.06em;
+    }
+
+    .service-overlay .overlay-top-title {
+        font-size: 0.58rem;
+        letter-spacing: 0.06em;
+    }
+}
+
+/* ─── Action buttons: grid at ≤480px ─────────────────────── */
+@media (max-width: 480px) {
+    .service-overlay .action-btns {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SERVICE GUEST STEPPER — scoped overrides
+   ═══════════════════════════════════════════════════════════ */
 .service-overlay .qty-row {
     display: flex;
     align-items: center;
@@ -910,15 +1027,15 @@
     justify-content: center;
     align-items: center;
     border: 1px solid var(--gold);
-    min-width: clamp(7rem, 18vw, 10rem);
-    min-height: clamp(2.2rem, 4vw, 2.6rem);
+    min-width: clamp(5.5rem, 18vw, 10rem);
+    min-height: clamp(2rem, 4vw, 2.6rem);
     padding: 0.35rem 0;
     border-radius: 0;
     background: transparent;
 }
 
 .service-overlay .qty-input {
-    width: clamp(2.5rem, 5vw, 3.5rem);
+    width: clamp(2rem, 5vw, 3.5rem);
     min-height: clamp(1.8rem, 3.5vw, 2.2rem);
     padding: 0;
     border: none;
@@ -926,7 +1043,7 @@
     background: transparent;
     box-shadow: none;
     font-family: inherit;
-    font-size: clamp(0.88rem, 1.5vw, 1rem);
+    font-size: clamp(0.78rem, 1.5vw, 1rem);
     text-align: center;
     outline: none;
     appearance: textfield;
@@ -975,42 +1092,564 @@
     font-size: clamp(0.72rem, calc(0.68rem + 0.1vw), 0.82rem);
 }
 
-/* Keep review track controlled by JS sizing/transform logic. */
+/* ═══════════════════════════════════════════════════════════
+   REVIEWS — responsive card count
+   ═══════════════════════════════════════════════════════════ */
 .service-overlay .reviews-list {
-  overflow: visible;
+    overflow: visible;
 }
 
+/* 3 cards default — gap accounts for 2 gutters of 16px */
+.service-overlay .review-card {
+    flex: 0 0 calc((100% - 32px) / 3);
+    min-width: calc((100% - 32px) / 3);
+    max-width: calc((100% - 32px) / 3);
+}
+
+/* 2 cards */
 @media (max-width: 900px) {
-  .service-overlay .review-card {
-    flex: 0 0 calc((100% - 16px) / 2);
-    min-width: calc((100% - 16px) / 2);
-    max-width: calc((100% - 16px) / 2);
-  }
+    .service-overlay .review-card {
+        flex: 0 0 calc((100% - 16px) / 2);
+        min-width: calc((100% - 16px) / 2);
+        max-width: calc((100% - 16px) / 2);
+    }
 }
 
+/* 1 card */
 @media (max-width: 580px) {
-  .service-overlay .review-area {
-    padding: 1rem;
-  }
+    .service-overlay .review-area {
+        padding: 1rem;
+    }
 
-  .service-overlay .reviews-list {
-    gap: 12px;
-  }
+    .service-overlay .reviews-list {
+        gap: 12px;
+    }
 
-  .service-overlay .review-card {
-    flex: 0 0 100%;
-    min-width: 100%;
-    max-width: 100%;
-    padding: 0.8rem;
-  }
+    .service-overlay .review-card {
+        flex: 0 0 100%;
+        min-width: 100%;
+        max-width: 100%;
+        padding: 0.8rem;
+    }
 
-  .service-overlay .review-nav-hint {
-    font-size: 0.62rem;
-    letter-spacing: 0.12em;
-  }
+    .service-overlay .review-nav-hint {
+        font-size: 0.62rem;
+        letter-spacing: 0.12em;
+    }
 
-  .service-overlay .review-form-grid {
-    grid-template-columns: 1fr;
-  }
+    .service-overlay .review-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ══════════════════════════════════════════
+   RESPONSIVE ADDITIONS — <600px, <400px, <300px
+══════════════════════════════════════════ */
+
+/* ── ≤600px ── */
+@media (max-width: 600px) {
+    .service-overlay.overlay {
+        padding: 0.35rem;
+    }
+
+    .service-overlay .overlay-box {
+        border-radius: clamp(0.45rem, 2vw, 0.75rem);
+    }
+
+    /* Top bar: stack */
+    .service-overlay .overlay-top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.6rem 0.85rem;
+        gap: 0.3rem;
+    }
+
+    .service-overlay .back-btn {
+        font-size: clamp(0.58rem, 2.5vw, 0.7rem);
+        padding: 0.3rem 0.7rem;
+        letter-spacing: 1.5px;
+    }
+
+    .service-overlay .overlay-top-title {
+        font-size: clamp(0.62rem, 2.5vw, 0.76rem);
+        letter-spacing: 1.5px;
+    }
+
+    /* Image viewer */
+    .service-overlay .image-viewer {
+        padding: 0.65rem;
+    }
+
+    .service-overlay .big-img {
+        height: clamp(11rem, 48vw, 22rem);
+    }
+
+    /* Thumbnails: tighter columns */
+    .service-overlay .thumbnail-bar {
+        grid-template-columns: repeat(auto-fill, minmax(clamp(3rem, 18vw, 4.5rem), 1fr));
+        gap: clamp(0.3rem, 1.2vw, 0.55rem);
+        margin-top: 0.6rem;
+    }
+
+    /* Info pane */
+    .service-overlay .info-pane {
+        padding: 0.9rem 1rem;
+        max-height: none;
+        overflow-y: visible;
+    }
+
+    .service-overlay .overlay-name {
+        font-size: clamp(1.3rem, 6vw, 2rem);
+    }
+
+    .service-overlay .overlay-price {
+        font-size: clamp(1.2rem, 5.5vw, 1.8rem);
+    }
+
+    .service-overlay .overlay-desc {
+        font-size: clamp(0.78rem, 3vw, 0.87rem);
+    }
+
+    /* Qty row */
+    .service-overlay .qty-row {
+        flex-wrap: wrap;
+        gap: 0.45rem;
+    }
+
+    /* Action buttons */
+    .service-overlay .action-btns {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.45rem;
+        padding-top: 0.75rem;
+    }
+
+    .service-overlay .overlay-book-btn {
+        width: 100%;
+        flex: 1 1 100%;
+    }
+
+    /* Review area */
+    .service-overlay .review-area {
+        padding: 0.9rem 1rem;
+    }
+
+    .service-overlay .review-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-overlay .review-card {
+        flex: 0 0 100%;
+        min-width: 100%;
+        max-width: 100%;
+        padding: 0.75rem;
+    }
+
+    .service-overlay .review-nav-hint {
+        font-size: 0.6rem;
+        letter-spacing: 0.1em;
+    }
+
+    /* Toast */
+    .toast {
+        white-space: normal;
+        text-align: center;
+        max-width: min(88vw, 300px);
+        font-size: 0.76rem;
+    }
 }
 
+/* ── ≤400px ── */
+@media (max-width: 400px) {
+    .service-overlay.overlay {
+        padding: 0.2rem;
+    }
+
+    .service-overlay .overlay-top-bar {
+        padding: 0.5rem 0.7rem;
+        gap: 0.25rem;
+    }
+
+    .service-overlay .back-btn {
+        font-size: 0.6rem;
+        padding: 0.28rem 0.6rem;
+        letter-spacing: 1px;
+    }
+
+    .service-overlay .overlay-top-title {
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+    }
+
+    .service-overlay .image-viewer {
+        padding: 0.5rem;
+    }
+
+    .service-overlay .big-img {
+        height: clamp(9.5rem, 46vw, 20rem);
+        border-radius: clamp(0.4rem, 1vw, 0.6rem);
+    }
+
+    .service-overlay .thumbnail-bar {
+        grid-template-columns: repeat(auto-fill, minmax(clamp(2.6rem, 16vw, 3.8rem), 1fr));
+        gap: clamp(0.25rem, 1vw, 0.4rem);
+        margin-top: 0.5rem;
+    }
+
+    .service-overlay .info-pane {
+        padding: 0.75rem 0.8rem;
+    }
+
+    .service-overlay .overlay-brand {
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+    }
+
+    .service-overlay .overlay-name {
+        font-size: clamp(1.15rem, 7vw, 1.65rem);
+    }
+
+    .service-overlay .overlay-price {
+        font-size: clamp(1.1rem, 6.5vw, 1.5rem);
+    }
+
+    .service-overlay .overlay-desc {
+        font-size: 0.78rem;
+        line-height: 1.6;
+    }
+
+    .service-overlay .overlay-rating .stars {
+        font-size: 0.85rem;
+    }
+
+    .service-overlay .info-section h4 {
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+        margin-bottom: 0.4rem;
+    }
+
+    .service-overlay .info-bullets li {
+        font-size: 0.76rem;
+    }
+
+    .service-overlay .qty-container {
+        min-width: 6rem;
+        min-height: 2rem;
+    }
+
+    .service-overlay .qty-input {
+        width: 2rem;
+        font-size: 0.85rem;
+    }
+
+    .service-overlay .qty-update {
+        min-width: 1.6rem;
+        font-size: 0.95rem;
+        padding: 0 0.45rem;
+    }
+
+    .service-overlay .qty-label {
+        font-size: 0.68rem;
+    }
+
+    .service-overlay .overlay-book-btn {
+        font-size: 0.68rem;
+        padding: 0.65rem 0.9rem;
+        letter-spacing: 1.5px;
+    }
+
+    .service-overlay .review-area {
+        padding: 0.75rem 0.8rem;
+    }
+
+    .service-overlay .review-header h3 {
+        font-size: 1rem;
+    }
+
+    .service-overlay .add-review {
+        padding: 1rem;
+        border-radius: 0.65rem;
+    }
+
+    .service-overlay .add-review h4 {
+        font-size: 0.95rem;
+        margin-bottom: 0.9rem;
+    }
+
+    .service-overlay .review-form-grid input,
+    .service-overlay .add-review textarea {
+        font-size: 0.76rem;
+        padding: 0.55rem 0.65rem;
+    }
+
+    .service-overlay .star-picker span {
+        font-size: 1.1rem;
+    }
+
+    .service-overlay .submit-review-btn {
+        font-size: 0.7rem;
+        padding: 0.55rem 1.2rem;
+        letter-spacing: 1.5px;
+    }
+
+    .service-overlay .review-nav-btn {
+        width: 1.9rem;
+        height: 1.9rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ── ≤300px: ultra-narrow ── */
+@media (max-width: 300px) {
+    .service-overlay.overlay {
+        padding: 0;
+    }
+
+    .service-overlay .overlay-box {
+        border-radius: 0;
+    }
+
+    .service-overlay .overlay-top-bar {
+        padding: 0.4rem 0.55rem;
+        gap: 0.2rem;
+    }
+
+    .service-overlay .back-btn {
+        font-size: 0.55rem;
+        padding: 0.25rem 0.5rem;
+        letter-spacing: 0.8px;
+    }
+
+    .service-overlay .overlay-top-title {
+        font-size: 0.55rem;
+        letter-spacing: 0.8px;
+    }
+
+    .service-overlay .image-viewer {
+        padding: 0.4rem;
+    }
+
+    .service-overlay .big-img {
+        height: clamp(8rem, 60vw, 22rem);
+        border-radius: 0.35rem;
+    }
+
+    /* img arrows: smaller */
+    .service-overlay .img-arrow {
+        width: 1.6rem;
+        height: 1.6rem;
+    }
+
+    .service-overlay .img-arrow svg {
+        width: 0.55rem;
+        height: 0.55rem;
+    }
+
+    .img-count-badge {
+        font-size: 0.55rem;
+        padding: 2px 7px;
+        bottom: 6px;
+        right: 6px;
+    }
+
+    /* Thumbnails: very compact, still 4:3 */
+    .service-overlay .thumbnail-bar {
+        grid-template-columns: repeat(auto-fill, minmax(clamp(2.2rem, 20vw, 3rem), 1fr));
+        gap: clamp(0.2rem, 1vw, 0.3rem);
+        margin-top: 0.4rem;
+    }
+
+    .service-overlay .info-pane {
+        padding: 0.55rem 0.6rem;
+    }
+
+    .service-overlay .overlay-brand {
+        font-size: 0.52rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 0.15rem;
+    }
+
+    .service-overlay .overlay-name {
+        font-size: clamp(0.95rem, 9vw, 1.25rem);
+        line-height: 1.2;
+        margin-bottom: 0.25rem;
+    }
+
+    .service-overlay .overlay-desc {
+        font-size: 0.72rem;
+        line-height: 1.55;
+        margin-bottom: 0.4rem;
+    }
+
+    .service-overlay .overlay-rating {
+        margin-bottom: 0.65rem;
+        padding-bottom: 0.65rem;
+    }
+
+    .service-overlay .overlay-rating .stars {
+        font-size: 0.78rem;
+        letter-spacing: 1px;
+    }
+
+    .service-overlay .overlay-price {
+        font-size: clamp(0.95rem, 9vw, 1.2rem);
+        margin-bottom: 0.65rem;
+    }
+
+    .service-overlay .info-section {
+        margin-bottom: 0.65rem;
+    }
+
+    .service-overlay .info-section h4 {
+        font-size: 0.52rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 0.35rem;
+    }
+
+    .service-overlay .info-bullets li {
+        font-size: 0.7rem;
+        gap: 0.35rem;
+    }
+
+    /* Qty stepper: minimal */
+    .service-overlay .qty-row {
+        gap: 0.3rem;
+    }
+
+    .service-overlay .qty-label {
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+    }
+
+    .service-overlay .qty-container {
+        min-width: 5.2rem;
+        min-height: 1.8rem;
+    }
+
+    .service-overlay .qty-input {
+        width: 1.8rem;
+        font-size: 0.78rem;
+    }
+
+    .service-overlay .qty-update {
+        min-width: 1.4rem;
+        font-size: 0.85rem;
+        padding: 0 0.35rem;
+    }
+
+    .service-overlay .update-btn {
+        font-size: 0.55rem;
+        letter-spacing: 1px;
+    }
+
+    /* Book button */
+    .service-overlay .action-btns {
+        gap: 0.3rem;
+        padding-top: 0.55rem;
+    }
+
+    .service-overlay .overlay-book-btn {
+        font-size: 0.6rem;
+        padding: 0.55rem 0.7rem;
+        letter-spacing: 1px;
+        border-radius: 3px;
+    }
+
+    /* Review area */
+    .service-overlay .review-area {
+        padding: 0.55rem 0.6rem;
+    }
+
+    .service-overlay .review-header {
+        margin-bottom: 0.75rem;
+    }
+
+    .service-overlay .review-header h3 {
+        font-size: 0.88rem;
+        letter-spacing: 0.5px;
+    }
+
+    .service-overlay .review-count-badge {
+        font-size: 0.6rem;
+    }
+
+    .service-overlay .review-card {
+        padding: 0.6rem 0.65rem;
+        border-radius: 0.5rem;
+    }
+
+    .service-overlay .reviewer-name {
+        font-size: 0.76rem;
+    }
+
+    .service-overlay .review-date {
+        font-size: 0.6rem;
+    }
+
+    .service-overlay .review-stars {
+        font-size: 0.65rem;
+    }
+
+    .service-overlay .review-text {
+        font-size: 0.7rem;
+        line-height: 1.55;
+    }
+
+    .service-overlay .add-review {
+        padding: 0.7rem 0.65rem;
+        border-radius: 0.5rem;
+    }
+
+    .service-overlay .add-review h4 {
+        font-size: 0.82rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 0.65rem;
+    }
+
+    .service-overlay .review-form-grid {
+        gap: 0.4rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .service-overlay .review-form-grid input,
+    .service-overlay .add-review textarea {
+        font-size: 0.7rem;
+        padding: 0.45rem 0.55rem;
+    }
+
+    .service-overlay .add-review textarea {
+        height: 3.5rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .service-overlay .star-picker {
+        gap: 3px;
+        margin-bottom: 0.5rem;
+    }
+
+    .service-overlay .star-picker span {
+        font-size: 0.95rem;
+    }
+
+    .service-overlay .submit-review-btn {
+        font-size: 0.58rem;
+        padding: 0.45rem 0.9rem;
+        letter-spacing: 1px;
+    }
+
+    .service-overlay .review-nav-btn {
+        width: 1.7rem;
+        height: 1.7rem;
+        font-size: 0.82rem;
+    }
+
+    .service-overlay .review-nav-hint {
+        font-size: 0.5rem;
+        letter-spacing: 0.08em;
+    }
+
+    .toast {
+        font-size: 0.68rem;
+        padding: 0.45rem 0.75rem;
+        max-width: min(90vw, 240px);
+    }
+}

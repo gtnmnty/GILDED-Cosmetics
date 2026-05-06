@@ -38,6 +38,7 @@ const EMPTY_FORM: BookingForm = {
   zipcode: '',
   service: '',
   notes: '',
+  guests: 1
 };
 
 interface FormErrors { [key: string]: string; }
@@ -83,19 +84,20 @@ function formatTimeRange(time: string): string {
 
 export function Booking() {
   const location = useLocation();
-  const serviceFromNav = (location.state as { service?: string; guests?: number })?.service ?? '';
-  const guestsFromNav = (location.state as { service?: string; guests?: number })?.guests ?? 1;
+  const locationState = location.state as { service?: string; guests?: number; img?: string } | null;
+  const serviceFromNav = locationState?.service ?? '';
+  const imgFromNav     = locationState?.img ?? '';
+  const guestsFromNav  = locationState?.guests ?? 1;
 
   const [sameInfo, setSameInfo] = useState(true);
   const [errors, setErrors] = useState<FormErrors>({});
   const [toast, setToast] = useState('');
-  const [guests, setGuests] = useState(1);
+  const [guests, setGuests] = useState(guestsFromNav);
   const navigate = useNavigate();
 
   const [form, setForm] = useState<BookingForm>({
     ...EMPTY_FORM,
     service: serviceFromNav,
-    guests: guestsFromNav,
   });
 
   // get current user from session
@@ -169,6 +171,7 @@ export function Booking() {
         id: `APT-${String(Date.now()).slice(-5)}`,
         status: 'upcoming',
         service: form.service,
+        img: imgFromNav,
         branch: form.serviceType === 'home'
           ? [form.street, form.barangay, form.city].filter(Boolean).join(', ')
           : form.branch ?? '',

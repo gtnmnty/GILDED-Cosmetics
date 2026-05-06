@@ -120,19 +120,29 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   padding: clamp(0.7rem, 1.3vw, 0.82rem) clamp(1rem, 2vw, 1.45rem);
-  border: 1px solid rgba(165, 56, 96, 0.25);
+  border: 1.5px solid var(--wine);
   border-radius: 999px;
   cursor: pointer;
-  background: transparent;
-  color: var(--wine);
-  transition: background 0.25s, color 0.25s, border-color 0.25s;
-}
-
-.pill:hover,
-.pill.active {
   background: var(--wine);
   color: var(--white);
-  border-color: var(--wine);
+  transition: background 0.25s, color 0.25s, border-color 0.25s, border-width 0.25s;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hover: gold outline, transparent bg */
+.pill:hover {
+  background: transparent;
+  color: var(--gold, #C5A059);
+  border-color: var(--gold, #C5A059);
+}
+
+/* Active: gold outline — matches screenshot */
+.pill.active {
+  background: transparent;
+  color: var(--gold, #C5A059);
+  border-color: var(--gold, #C5A059);
+  border-width: 2px;
 }
 
 /* ─── Sort ───────────────────────────────────────────────── */
@@ -205,7 +215,9 @@
 }
 
 .card-img {
-  height: clamp(13rem, 28vw, 15.5rem);
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  height: auto;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -225,17 +237,16 @@
 .card-badge {
   position: absolute;
   top: 14px;
-  right: 14px;
-  background: rgba(10, 10, 10, 0.667);
-  color: var(--gold);
-  font-size: 0.65rem;
+  left: 14px;
+  background: rgba(10, 10, 10, 0.72);
+  color: var(--gold, #C5A059);
+  font-size: clamp(0.55rem, 1vw, 0.65rem);
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 2px;
+  padding: 4px 14px;
+  border-radius: 12px;
   font-family: 'Jost', sans-serif;
   font-weight: 600;
-  z-index: 1;
 }
 
 .card-content {
@@ -300,7 +311,7 @@
 .cart-btn {
   background: transparent;
   border: 1.5px solid var(--wine);
-  color: var(--navy);
+  color: var(--wine);
   padding: clamp(0.6rem, 0.8vw, 0.75rem) clamp(0.85rem, 1.2vw, 1rem);
   font-family: 'Jost', sans-serif;
   font-size: clamp(0.68rem, calc(0.64rem + 0.12vw), 0.76rem);
@@ -308,12 +319,15 @@
   text-transform: uppercase;
   cursor: pointer;
   border-radius: 3px;
-  transition: all 0.3s;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .cart-btn:hover {
   background: var(--wine);
-  color: var(--blush);
+  color: var(--white);
+  border-color: var(--wine);
 }
 
 .book-btn {
@@ -465,7 +479,19 @@
 .services-page .cart-btn {
   background: transparent;
   border: 1.5px solid var(--wine);
-  color: var(--navy);
+  color: var(--wine);
+}
+
+.services-page .cart-btn:hover {
+  background: var(--wine);
+  color: var(--white);
+  border-color: var(--wine);
+}
+
+.services-page .book-btn:hover {
+  background: var(--deep);
+  color: var(--white);
+  border-color: var(--deep);
 }
 
 /* Final service-card lock: product card styles can remain loaded after navigation. */
@@ -512,14 +538,512 @@
   border-radius: 3px;
 }
 
+/* ═══════════════════════════════════════════════════════════════════════
+   SERVICES PAGE — CARD SHAPE LOCK (all screen sizes)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── ≤640px ── */
 @media (max-width: 640px) {
+  .services-page .item-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(0.85rem, 3vw, 1.25rem);
+  }
+
+  .services-page .card {
+    display: block;
+    width: 100%;
+    border-radius: clamp(0.65rem, 2vw, 0.9rem);
+  }
+
+  .services-page .card-img {
+    width: 100%;
+    display: block;
+  }
+
+  .services-page .card-content {
+    padding: clamp(0.85rem, 4vw, 1.2rem);
+    display: block;
+    text-align: left;
+  }
+
+  .services-page .card-name {
+    font-size: clamp(1.15rem, 5.5vw, 1.5rem);
+    margin-bottom: 3px;
+  }
+
+  .services-page .card-brand {
+    font-size: 0.7rem;
+    margin-bottom: 6px;
+  }
+
+  .services-page .card-rating {
+    margin-bottom: clamp(0.45rem, 2vw, 0.65rem);
+  }
+
+  /* Footer: price LEFT, buttons RIGHT — always a row */
   .services-page .card-footer {
-    flex-direction: column;
-    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: clamp(0.2rem, 1vw, 0.5rem);
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  .services-page .card-price {
+    flex: 0 1 auto;
+    font-size: clamp(0.9rem, 4vw, 1.45rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .services-page .card-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex: 0 1 auto;
+    gap: clamp(0.25rem, 1vw, 0.45rem);
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: auto;
+    min-width: 0;
+  }
+
+  .services-page .book-btn,
+  .services-page .cart-btn {
+    display: inline-block;
+    width: auto;
+    white-space: nowrap;
+    padding: clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.5rem, 2vw, 0.8rem);
+    font-size: clamp(0.55rem, 2vw, 0.7rem);
+    letter-spacing: 0.08em;
+    border-radius: 3px;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* ── ≤400px ── */
+@media (max-width: 400px) {
+
+
+  .services-page .card-content {
+    padding: clamp(0.75rem, 4vw, 1rem);
+  }
+
+  .services-page .card-name {
+    font-size: clamp(1rem, 5.5vw, 1.3rem);
+  }
+
+  .services-page .card-price {
+    font-size: clamp(1rem, 5vw, 1.25rem);
+  }
+
+  .services-page .book-btn,
+  .services-page .cart-btn {
+    padding: clamp(0.5rem, 2.5vw, 0.65rem) clamp(0.6rem, 3vw, 0.85rem);
+    font-size: clamp(0.62rem, 2.8vw, 0.72rem);
+    letter-spacing: 0.1em;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+}
+
+/* ── ≤300px: ultra-narrow ── */
+@media (max-width: 300px) {
+  .services-page .item-grid {
+    gap: 0.65rem;
+  }
+
+  .services-page .card {
+    border-radius: 0.5rem;
+  }
+
+
+
+  .services-page .card-content {
+    padding: 0.65rem 0.7rem;
+  }
+
+  .services-page .card-name {
+    font-size: clamp(0.95rem, 7vw, 1.15rem);
+    margin-bottom: 2px;
+  }
+
+  .services-page .card-brand {
+    font-size: 0.62rem;
+    margin-bottom: 4px;
+  }
+
+  .services-page .stars {
+    font-size: 0.72rem;
+  }
+
+  .services-page .rating-count {
+    font-size: 0.65rem;
+  }
+
+  .services-page .card-rating {
+    margin-bottom: 0.4rem;
+  }
+
+  /* Footer stays a row — compress buttons to fit */
+  .services-page .card-footer {
+    gap: 0.2rem;
+    flex-wrap: nowrap;
+  }
+
+  .services-page .card-price {
+    font-size: clamp(0.95rem, 7vw, 1.1rem);
+  }
+
+  .services-page .card-actions {
+    gap: 0.25rem;
+  }
+
+  .services-page .book-btn,
+  .services-page .cart-btn {
+    padding: 0.45rem 0.5rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    border-radius: 2px;
+  }
+
+  .page-hero {
+    padding: 2rem 0.75rem 1.75rem;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.7rem, 12vw, 2.2rem);
+    letter-spacing: 0.06em;
+  }
+
+  .page-hero p {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+  }
+
+  .pill {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+  }
+
+  .search-input {
+    font-size: 1rem; /* iOS: prevent zoom */
+    padding: 0.75rem 0.65rem;
+  }
+}
+/* ══════════════════════════════════════════
+   RESPONSIVE ADDITIONS — <600px, <400px, <300px
+══════════════════════════════════════════ */
+
+/* ── ≤600px ── */
+@media (max-width: 600px) {
+  .page-hero {
+    padding: clamp(2rem, 10vw, 3rem) 1rem clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2.2rem, 9vw, 3rem);
+    letter-spacing: 0.07em;
+  }
+
+  .page-hero p {
+    font-size: clamp(0.68rem, 3vw, 0.8rem);
+    letter-spacing: 0.16em;
+  }
+
+  .search-wrap {
+    width: calc(100% - 2rem);
+  }
+
+  .search-input {
+    font-size: clamp(0.88rem, 4vw, 1rem);
+    padding: 0.9rem 0.85rem;
+  }
+
+  .search-btn {
+    width: clamp(3rem, 14vw, 3.75rem);
+    flex-basis: clamp(3rem, 14vw, 3.75rem);
+    padding: 0.9rem;
+  }
+
+  /* Filter pills: horizontal scroll */
+  .filter-pills {
     justify-content: flex-start;
-    margin-left: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    width: calc(100% - 2rem);
+  }
+
+  .filter-pills::-webkit-scrollbar { display: none; }
+
+  .pill {
+    flex-shrink: 0;
+    font-size: clamp(0.68rem, 3vw, 0.8rem);
+    padding: 0.6rem 1rem;
+  }
+
+  .sort-select {
+    font-size: clamp(0.72rem, 3vw, 0.82rem);
+    padding: 0.65rem 0.85rem;
+  }
+
+  /* Grid: single column */
+  .services-page .item-grid,
+  .item-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(0.75rem, 3vw, 1rem);
+  }
+
+  .services-page .card,
+  .card {
+    display: block;
+    width: 100%;
+    border-radius: clamp(0.6rem, 2vw, 0.85rem);
+  }
+
+  .services-page .card-content,
+  .card-content {
+    padding: clamp(0.85rem, 4vw, 1.1rem);
+  }
+
+  /* Footer stays a row */
+  .services-page .card-footer,
+  .card-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: clamp(0.2rem, 1vw, 0.5rem);
+  }
+
+  .services-page .card-price {
+    font-size: clamp(0.95rem, 4.5vw, 1.35rem);
+    white-space: nowrap;
+  }
+
+  .services-page .card-actions {
+    flex-wrap: nowrap;
+    gap: clamp(0.2rem, 1vw, 0.4rem);
+    margin-left: auto;
+  }
+
+  .services-page .book-btn,
+  .services-page .cart-btn {
+    font-size: clamp(0.58rem, 2.2vw, 0.7rem);
+    padding: clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.5rem, 2vw, 0.75rem);
+    white-space: nowrap;
+  }
+}
+
+/* ── ≤400px ── */
+@media (max-width: 400px) {
+  .page-hero {
+    padding: 1.75rem 0.85rem 1.5rem;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.9rem, 10vw, 2.5rem);
+    letter-spacing: 0.05em;
+  }
+
+  .page-hero p {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+  }
+
+  .search-wrap {
+    width: calc(100% - 1.5rem);
+  }
+
+  .search-input {
+    font-size: 1rem; /* iOS: prevent zoom */
+    padding: 0.8rem 0.75rem;
+  }
+
+  .search-btn {
+    width: clamp(2.8rem, 13vw, 3.5rem);
+    flex-basis: clamp(2.8rem, 13vw, 3.5rem);
+    padding: 0.8rem 0.65rem;
+  }
+
+  .filter-pills {
+    width: calc(100% - 1.5rem);
+  }
+
+  .pill {
+    font-size: 0.65rem;
+    padding: 0.55rem 0.85rem;
+    letter-spacing: 0.12em;
+  }
+
+  .services-page .card-content,
+  .card-content {
+    padding: clamp(0.75rem, 4vw, 0.95rem);
+  }
+
+  .services-page .card-name,
+  .card-name {
+    font-size: clamp(1rem, 5.5vw, 1.3rem);
+  }
+
+  .services-page .card-price {
+    font-size: clamp(0.9rem, 5vw, 1.2rem);
+  }
+
+  .services-page .book-btn,
+  .services-page .cart-btn {
+    font-size: clamp(0.56rem, 2.5vw, 0.68rem);
+    padding: clamp(0.35rem, 1.5vw, 0.55rem) clamp(0.45rem, 2vw, 0.7rem);
+    letter-spacing: 0.08em;
+  }
+}
+
+/* ── ≤300px: ultra-narrow ── */
+@media (max-width: 300px) {
+  .page-hero {
+    padding: 1.5rem 0.65rem 1.25rem;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.6rem, 13vw, 2rem);
+    letter-spacing: 0.04em;
+    word-break: break-word;
+  }
+
+  .page-hero p {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+  }
+
+  .hero-line {
+    width: 2.2rem;
+    margin-top: 0.9rem;
+  }
+
+  .search-wrap {
+    width: calc(100% - 1.2rem);
+  }
+
+  .search-input {
+    font-size: 1rem;
+    padding: 0.7rem 0.6rem;
+  }
+
+  .search-btn {
+    width: 2.6rem;
+    flex-basis: 2.6rem;
+    padding: 0.7rem 0.5rem;
+  }
+
+  .search-btn svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .filter-pills {
+    width: calc(100% - 1.2rem);
+    gap: 0.3rem;
+  }
+
+  .pill {
+    font-size: 0.58rem;
+    padding: 0.42rem 0.65rem;
+    letter-spacing: 0.08em;
+  }
+
+  .sort-select {
+    font-size: 0.65rem;
+    padding: 0.5rem 0.65rem;
+    letter-spacing: 0.1em;
+  }
+
+  .services-page .item-grid,
+  .item-grid {
+    gap: 0.55rem;
+  }
+
+  .services-page .card,
+  .card {
+    border-radius: 0.5rem;
+  }
+
+  .services-page .card-content,
+  .card-content {
+    padding: 0.6rem 0.65rem;
+  }
+
+  .services-page .card-name,
+  .card-name {
+    font-size: clamp(0.9rem, 8vw, 1.1rem);
+    margin-bottom: 2px;
+    line-height: 1.2;
+  }
+
+  .services-page .card-brand,
+  .card-brand {
+    font-size: 0.58rem;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  .services-page .stars,
+  .stars {
+    font-size: 0.68rem;
+  }
+
+  .services-page .rating-count,
+  .rating-count {
+    font-size: 0.6rem;
+  }
+
+  .services-page .card-rating,
+  .card-rating {
+    margin-bottom: 0.3rem;
+    gap: 0.25rem;
+  }
+
+  /* Footer: stay in a row, compress hard */
+  .services-page .card-footer,
+  .card-footer {
+    gap: 0.15rem;
+    flex-wrap: nowrap;
+  }
+
+  .services-page .card-price {
+    font-size: clamp(0.85rem, 8vw, 1rem);
+    flex-shrink: 1;
+  }
+
+  .services-page .card-actions {
+    gap: 0.18rem;
+    flex-shrink: 0;
+  }
+
+  .services-page .book-btn,
+  .services-page .cart-btn {
+    font-size: 0.52rem;
+    padding: 0.38rem 0.42rem;
+    letter-spacing: 0.06em;
+    border-radius: 2px;
+  }
+
+  /* Container */
+  .services-page .container,
+  .container {
+    width: calc(100% - 1.2rem);
+    padding-top: 1.25rem;
+    padding-bottom: 2rem;
   }
 }

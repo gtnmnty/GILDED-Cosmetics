@@ -290,6 +290,23 @@
   color: rgba(197, 160, 89, 0.35);
 }
 
+.apt-svc-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+ 
+.apt-svc-img-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  color: rgba(197, 160, 89, 0.35);
+}
+
 /* ── Service info ── */
 .apt-svc-info {
   display: flex;

@@ -265,7 +265,7 @@ export function ProductOverlay({ product, onClose, onBuyNow, onToast }: Props) {
 
           {/* INFO PANE */}
           <div className="info-pane">
-            <div className="overlay-brand">{product.brand}</div>
+            <div className="overlay-brand">{product.category}</div>
             <h2 className="overlay-name">{product.name}</h2>
             <p className="overlay-desc">{product.desc}</p>
 

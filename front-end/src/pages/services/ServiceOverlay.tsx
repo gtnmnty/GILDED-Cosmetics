@@ -306,7 +306,7 @@ export function ServiceOverlay({ service, onClose, onBook }: Props) {
               </div>
 
               <div className="action-btns">
-                <button className="overlay-book-btn" onClick={() => navigate('/booking', { state: { service: service.name, guests } })}>
+                <button className="overlay-book-btn" onClick={() => navigate('/booking', { state: { service: service.name, guests, img: service.imgs[0] } })}>
                   Book Now
                 </button>
               </div>

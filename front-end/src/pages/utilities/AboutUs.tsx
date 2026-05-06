@@ -3,24 +3,23 @@ import { useLocation } from 'react-router';
 
 import { Header } from '../../Components/Header';
 import { Footer } from '../../Components/Footer';
-import { accordions } from './about-us/accordion';
-import { reviews } from './about-us/reviews';
+import { accordions } from '../utilities/about-us/accordion';
+import { reviews } from '../utilities/about-us/reviews';
+import './AboutUs.css';
 
+/* ── TYPES ── */
 export interface AccordionItem {
   id: number;
   title: string;
   html: string;
 }
- 
+
 export interface ReviewItem {
   initial: string;
   name: string;
   stars: number;
   text: string;
 }
-
-
-import './AboutUs.css';
 
 /* ── ACCORDION ITEM ── */
 function AccordionItemComp({ item }: { item: AccordionItem }) {
@@ -200,7 +199,7 @@ export function AboutUs() {
       <section className="accordion-section">
         <p className="accordion-section-label">Our Story &amp; Values</p>
         <div id="accordionList">
-          {accordionItems.map(item => (
+          {accordions.map(item => (
             <AccordionItemComp key={item.id} item={item} />
           ))}
         </div>
@@ -210,7 +209,7 @@ export function AboutUs() {
       <section className="testimonials" id="testimonials">
         <h2 className="section-title">Testimonials</h2>
         <div className="section-rule" />
-        <TestimonialsCarousel data={reviewItems} />
+        <TestimonialsCarousel data={reviews} />
       </section>
 
       {/* CONTACT */}

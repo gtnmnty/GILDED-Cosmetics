@@ -6,4 +6,5 @@ export interface Appointment {
   date: string;
   time: string;
   guests: number;
+  img?: string;
 }

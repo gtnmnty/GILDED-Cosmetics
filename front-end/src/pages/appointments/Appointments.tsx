@@ -51,7 +51,13 @@ function AppointmentCard({
       <div className="apt-divider" />
 
       <div className="apt-content-row">
-        <div className="apt-svc-img">✦</div>
+        <div className="apt-svc-img">
+          {apt.img ? (
+            <img src={apt.img} alt={apt.service} />
+          ) : (
+            <span className="apt-svc-img-fallback">✦</span>
+          )}
+        </div>
 
         <div className="apt-svc-info">
           <p className="apt-svc-name">{apt.service || '—'}</p>
@@ -82,7 +88,7 @@ function AppointmentCard({
           <div className="apt-actions">
             <button
               className="apt-btn apt-btn--primary"
-              onClick={() => navigate('/booking', { state: { service: apt.service } })}
+              onClick={() => navigate('/booking', { state: { service: apt.service, img: apt.img } })}
             >
               Book Again
             </button>
@@ -103,11 +109,6 @@ function AppointmentCard({
 
 export function Appointments() {
   const [activeFilter, setActiveFilter] = useState<FilterType>('all');
-
-  const currentUser: UserAccount | null = (() => {
-    try { return JSON.parse(sessionStorage.getItem('currentUser') ?? 'null'); }
-    catch { return null; }
-  })();
 
   const [appointments, setAppointments] = useState<Appointment[]>(() => {
     try {

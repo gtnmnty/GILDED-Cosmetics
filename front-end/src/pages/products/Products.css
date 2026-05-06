@@ -286,7 +286,9 @@
 
 /* Image */
 .card-img {
-  height: clamp(13rem, 29vw, 16.75rem);
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  height: auto;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -297,15 +299,15 @@
 
 .card-badge {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 14px;
+  left: 14px;
   background: rgba(10, 10, 10, 0.72);
   color: var(--gold, #C5A059);
   font-size: clamp(0.55rem, 1vw, 0.65rem);
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 2px;
+  padding: 4px 14px;
+  border-radius: 12px;
   font-family: 'Jost', sans-serif;
   font-weight: 600;
 }
@@ -587,18 +589,17 @@
     gap: 12px;
   }
 
-  .card-img {
-    height: clamp(130px, 30vw, 180px);
-  }
+
 }
 
-/* Small mobile */
-@media (max-width: 480px) {
+/* ── ≤600px: 1-column, card shape locked ── */
+@media (max-width: 600px) {
   .filter-pills {
     justify-content: flex-start;
     overflow-x: auto;
     flex-wrap: nowrap;
     padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
   }
 
   .pill {
@@ -614,35 +615,266 @@
     flex-basis: clamp(3.5rem, 16vw, 4.2rem);
   }
 
+  /* Single column — card fills full width like screenshot */
+  .products-page .items-grid,
   .items-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    grid-template-columns: 1fr;
+    gap: clamp(0.85rem, 3vw, 1.2rem);
   }
 
-  .card-content {
-    padding: 10px 12px;
-  }
-
-  .card-qty-row {
-    gap: 6px;
-  }
-
-  .card-actions {
+  /* Card: always block, image on top */
+  .products-page .card,
+  .card {
+    display: flex;
     flex-direction: column;
-    gap: 6px;
+    width: 100%;
+    border-radius: clamp(0.65rem, 2vw, 0.9rem);
   }
 
-  .add-to-cart-btn,
-  .view-btn {
+  .card-img {
     width: 100%;
+    flex-shrink: 0;
+  }
+
+  .products-page .card-content,
+  .card-content {
+    padding: clamp(0.85rem, 4vw, 1.2rem);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .card-category {
+    font-size: clamp(0.58rem, 2.5vw, 0.68rem);
+  }
+
+  .card-name {
+    font-size: clamp(1.15rem, 5.5vw, 1.5rem);
+    margin-bottom: 3px;
+  }
+
+  .card-rating {
+    margin-bottom: clamp(0.4rem, 2vw, 0.6rem);
+  }
+
+  .products-page .card-price {
+    font-size: clamp(1.15rem, 5vw, 1.45rem);
+    margin-bottom: clamp(0.65rem, 2.5vw, 0.9rem);
+  }
+
+  /* Qty row: stays inline */
+  .products-page .card-qty-row,
+  .card-qty-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: clamp(0.3rem, 1.5vw, 0.75rem);
+    margin-bottom: clamp(0.65rem, 2.5vw, 0.9rem);
+    width: 100%;
+  }
+
+  /* Action buttons: ADD TO CART + BUY NOW side by side */
+  .products-page .card-actions,
+  .card-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex: 0 1 auto;
+    gap: clamp(0.2rem, 1vw, 0.6rem);
+    margin-top: auto;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .products-page .add-to-cart-btn,
+  .add-to-cart-btn {
+    flex: 1;
     justify-content: center;
+    white-space: nowrap;
+    padding: clamp(0.6rem, 2.5vw, 0.75rem) clamp(0.5rem, 2vw, 0.8rem);
+    font-size: clamp(0.65rem, 2.5vw, 0.75rem);
+    letter-spacing: 0.12em;
+  }
+
+  .products-page .buy-btn,
+  .buy-btn {
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+    padding: clamp(0.6rem, 2.5vw, 0.75rem) clamp(0.5rem, 2vw, 0.8rem);
+    font-size: clamp(0.65rem, 2.5vw, 0.75rem);
+    letter-spacing: 0.12em;
   }
 }
 
-/* Very small mobile */
-@media (max-width: 360px) {
+/* ── ≤400px ── */
+@media (max-width: 400px) {
+
+
+  .products-page .card-content,
+  .card-content {
+    padding: clamp(0.75rem, 4vw, 1rem);
+  }
+
+  .card-name {
+    font-size: clamp(1rem, 5.5vw, 1.3rem);
+  }
+
+  .products-page .card-price {
+    font-size: clamp(1rem, 5vw, 1.2rem);
+    margin-bottom: clamp(0.55rem, 2.5vw, 0.75rem);
+  }
+
+  .card-qty-label {
+    font-size: clamp(0.58rem, 2.8vw, 0.68rem);
+  }
+
+  .card-qty-controls {
+    height: clamp(26px, 5vw, 30px);
+  }
+
+  .card-qty-btn {
+    padding: 0 clamp(6px, 2vw, 9px);
+    font-size: clamp(0.85rem, 4vw, 1rem);
+  }
+
+  .products-page .card-qty-num {
+    width: 2rem;
+    font-size: clamp(0.75rem, 3.5vw, 0.88rem);
+  }
+
+  .products-page .add-to-cart-btn,
+  .add-to-cart-btn,
+  .products-page .buy-btn,
+  .buy-btn {
+    padding: clamp(0.55rem, 2.5vw, 0.7rem) clamp(0.4rem, 2vw, 0.65rem);
+    font-size: clamp(0.62rem, 2.8vw, 0.72rem);
+    letter-spacing: 0.1em;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+}
+
+/* ── ≤300px: ultra-narrow ── */
+@media (max-width: 300px) {
+  .products-page .items-grid,
   .items-grid {
-    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .products-page .card,
+  .card {
+    border-radius: 0.5rem;
+  }
+
+
+
+  .products-page .card-content,
+  .card-content {
+    padding: 0.65rem 0.7rem;
+  }
+
+  .card-category {
+    font-size: 0.58rem;
+    margin-bottom: 2px;
+  }
+
+  .card-name {
+    font-size: clamp(0.95rem, 7vw, 1.1rem);
+    margin-bottom: 2px;
+  }
+
+  .card-rating {
+    margin-bottom: 0.35rem;
+  }
+
+  .stars {
+    font-size: 0.7rem;
+  }
+
+  .rating-count {
+    font-size: 0.62rem;
+  }
+
+  .products-page .card-price {
+    font-size: clamp(0.95rem, 7vw, 1.1rem);
+    margin-bottom: 0.5rem;
+  }
+
+  /* Qty row stays horizontal */
+  .products-page .card-qty-row,
+  .card-qty-row {
+    gap: 0.35rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-qty-label {
+    font-size: 0.58rem;
+    letter-spacing: 1.5px;
+  }
+
+  .card-qty-controls {
+    height: 24px;
+  }
+
+  .card-qty-btn {
+    padding: 0 6px;
+    font-size: 0.82rem;
+  }
+
+  .products-page .card-qty-num {
+    width: 1.6rem;
+    font-size: 0.72rem;
+  }
+
+  .card-qty-update {
+    font-size: 0.56rem;
+    letter-spacing: 1.2px;
+  }
+
+  /* Buttons: side by side, very compact */
+  .products-page .card-actions,
+  .card-actions {
+    gap: 0.15rem;
+    flex-wrap: nowrap;
+  }
+
+  .products-page .add-to-cart-btn,
+  .add-to-cart-btn,
+  .products-page .buy-btn,
+  .buy-btn {
+    padding: 0.5rem 0.35rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    border-radius: 3px;
+  }
+
+  .page-hero {
+    padding: 2rem 0.75rem 1.75rem;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.7rem, 12vw, 2.2rem);
+    letter-spacing: 0.06em;
+  }
+
+  .page-hero p {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+  }
+
+  .pill {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+  }
+
+  .search-input {
+    font-size: 1rem;
+    padding: 0.75rem 0.65rem;
   }
 }
 
@@ -712,4 +944,423 @@
   border: 1.5px solid var(--wine, #A53860);
   color: var(--wine, #A53860);
   border-radius: 4px;
+}
+/* ══════════════════════════════════════════
+   RESPONSIVE ADDITIONS — <600px, <300px
+══════════════════════════════════════════ */
+
+/* ── ≤600px ── */
+@media (max-width: 600px) {
+  /* Hero */
+  .page-hero {
+    padding: clamp(2rem, 10vw, 3rem) 1rem clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2.2rem, 9vw, 3rem);
+    letter-spacing: 0.07em;
+  }
+
+  .page-hero p {
+    font-size: clamp(0.68rem, 3vw, 0.8rem);
+    letter-spacing: 0.16em;
+  }
+
+  /* Search */
+  .search-wrap {
+    width: calc(100% - 2rem);
+  }
+
+  .search-input {
+    font-size: clamp(0.88rem, 4vw, 1rem);
+    padding: 0.9rem 0.85rem;
+  }
+
+  .search-btn {
+    width: clamp(3rem, 14vw, 3.75rem);
+    flex-basis: clamp(3rem, 14vw, 3.75rem);
+    padding: 0.9rem;
+  }
+
+  /* Filter pills: horizontal scroll */
+  .filter-pills {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    width: calc(100% - 2rem);
+  }
+
+  .filter-pills::-webkit-scrollbar { display: none; }
+
+  .pill {
+    flex-shrink: 0;
+    font-size: clamp(0.68rem, 3vw, 0.8rem);
+    padding: 0.6rem 1rem;
+  }
+
+  /* Sort */
+  .products-page .sort-select {
+    font-size: clamp(0.72rem, 3vw, 0.82rem);
+    padding: 0.65rem 0.85rem;
+  }
+
+  /* Category header */
+  .cat-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    padding: 0.85rem 1rem;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .cat-count {
+    margin-left: 0;
+  }
+
+  .cat-title {
+    font-size: clamp(1.2rem, 6vw, 1.8rem);
+    letter-spacing: 2px;
+  }
+
+  .cat-sub {
+    font-size: clamp(0.58rem, 2.5vw, 0.68rem);
+  }
+
+  .cat-body {
+    padding: 0.85rem 0.75rem 1rem;
+  }
+
+  /* Grid: single column */
+  .products-page .items-grid,
+  .items-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(0.75rem, 3vw, 1rem);
+  }
+
+  /* Cards */
+  .products-page .card,
+  .card {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .card-img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+  .products-page .card-content,
+  .card-content {
+    padding: clamp(0.85rem, 4vw, 1.1rem);
+  }
+
+  /* Action buttons: side by side */
+  .products-page .card-actions,
+  .card-actions {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: clamp(0.3rem, 1.5vw, 0.5rem);
+  }
+
+  .products-page .add-to-cart-btn,
+  .add-to-cart-btn,
+  .products-page .buy-btn,
+  .buy-btn {
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    font-size: clamp(0.62rem, 2.5vw, 0.72rem);
+    padding: clamp(0.55rem, 2vw, 0.7rem) clamp(0.4rem, 1.5vw, 0.65rem);
+    letter-spacing: 0.12em;
+  }
+}
+
+/* ── ≤400px ── */
+@media (max-width: 400px) {
+  .page-hero {
+    padding: 1.75rem 0.85rem 1.5rem;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.9rem, 10vw, 2.5rem);
+    letter-spacing: 0.05em;
+  }
+
+  .page-hero p {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+  }
+
+  .search-wrap {
+    width: calc(100% - 1.5rem);
+  }
+
+  .search-input {
+    font-size: 0.9rem;
+    padding: 0.8rem 0.75rem;
+  }
+
+  .search-btn {
+    width: clamp(2.8rem, 13vw, 3.5rem);
+    flex-basis: clamp(2.8rem, 13vw, 3.5rem);
+    padding: 0.8rem 0.65rem;
+  }
+
+  .filter-pills {
+    width: calc(100% - 1.5rem);
+  }
+
+  .pill {
+    font-size: 0.65rem;
+    padding: 0.55rem 0.85rem;
+    letter-spacing: 0.12em;
+  }
+
+  .cat-title {
+    font-size: clamp(1.1rem, 7vw, 1.5rem);
+  }
+
+  .cat-body {
+    padding: 0.7rem 0.65rem 0.85rem;
+  }
+
+  .card-name {
+    font-size: clamp(1rem, 5.5vw, 1.3rem);
+  }
+
+  .products-page .card-price {
+    font-size: clamp(1rem, 5vw, 1.2rem);
+    margin-bottom: 0.55rem;
+  }
+
+  .card-qty-label {
+    font-size: 0.6rem;
+  }
+
+  .card-qty-controls {
+    height: clamp(26px, 6vw, 30px);
+  }
+
+  .card-qty-btn {
+    padding: 0 clamp(6px, 2vw, 9px);
+    font-size: clamp(0.85rem, 4vw, 1rem);
+  }
+
+  .products-page .card-qty-num {
+    width: 2rem;
+    font-size: clamp(0.75rem, 3.5vw, 0.88rem);
+  }
+
+  .products-page .add-to-cart-btn,
+  .add-to-cart-btn,
+  .products-page .buy-btn,
+  .buy-btn {
+    font-size: clamp(0.6rem, 2.8vw, 0.7rem);
+    padding: clamp(0.5rem, 2vw, 0.65rem) clamp(0.35rem, 1.5vw, 0.55rem);
+    letter-spacing: 0.1em;
+  }
+}
+
+/* ── ≤300px: ultra-narrow ── */
+@media (max-width: 300px) {
+  .page-hero {
+    padding: 1.5rem 0.65rem 1.25rem;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.6rem, 13vw, 2rem);
+    letter-spacing: 0.04em;
+    word-break: break-word;
+  }
+
+  .page-hero p {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+  }
+
+  .hero-line {
+    width: 2.2rem;
+    margin-top: 0.9rem;
+  }
+
+  /* Search */
+  .search-wrap {
+    width: calc(100% - 1.2rem);
+  }
+
+  .search-input {
+    font-size: 0.85rem;
+    padding: 0.7rem 0.6rem;
+  }
+
+  .search-btn {
+    width: 2.6rem;
+    flex-basis: 2.6rem;
+    padding: 0.7rem 0.5rem;
+  }
+
+  .search-btn svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  /* Filter pills */
+  .filter-pills {
+    width: calc(100% - 1.2rem);
+    gap: 0.35rem;
+  }
+
+  .pill {
+    font-size: 0.58rem;
+    padding: 0.45rem 0.65rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* Sort */
+  .products-page .sort-select {
+    font-size: 0.68rem;
+    padding: 0.55rem 0.7rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* Category */
+  .cat-header {
+    padding: 0.65rem 0.7rem;
+    gap: 0.3rem;
+    border-radius: 6px 6px 0 0;
+  }
+
+  .cat-title {
+    font-size: clamp(1rem, 9vw, 1.3rem);
+    letter-spacing: 1.5px;
+  }
+
+  .cat-sub {
+    font-size: 0.55rem;
+    letter-spacing: 1.8px;
+  }
+
+  .cat-count {
+    font-size: 0.55rem;
+    padding: 3px 10px;
+  }
+
+  .cat-body {
+    padding: 0.6rem 0.55rem 0.7rem;
+    border-radius: 0 0 6px 6px;
+  }
+
+  /* Grid */
+  .products-page .items-grid,
+  .items-grid {
+    gap: 0.55rem;
+  }
+
+  /* Card */
+  .products-page .card,
+  .card {
+    border-radius: 6px;
+  }
+
+  .products-page .card-content,
+  .card-content {
+    padding: 0.6rem 0.65rem;
+    gap: 0;
+  }
+
+  .card-category {
+    font-size: 0.55rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 2px;
+  }
+
+  .card-name {
+    font-size: clamp(0.9rem, 8vw, 1.1rem);
+    margin-bottom: 2px;
+    line-height: 1.2;
+  }
+
+  .stars {
+    font-size: 0.68rem;
+  }
+
+  .rating-count {
+    font-size: 0.6rem;
+  }
+
+  .card-rating {
+    margin-bottom: 0.3rem;
+  }
+
+  .products-page .card-price {
+    font-size: clamp(0.9rem, 8vw, 1.1rem);
+    margin-bottom: 0.45rem;
+  }
+
+  /* Qty row: stays horizontal, minimal */
+  .products-page .card-qty-row,
+  .card-qty-row {
+    gap: 0.3rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .card-qty-label {
+    font-size: 0.56rem;
+    letter-spacing: 1.2px;
+  }
+
+  .card-qty-controls {
+    height: 24px;
+  }
+
+  .card-qty-btn {
+    padding: 0 5px;
+    font-size: 0.8rem;
+  }
+
+  .products-page .card-qty-num {
+    width: 1.5rem;
+    font-size: 0.7rem;
+  }
+
+  .card-qty-update {
+    font-size: 0.54rem;
+    letter-spacing: 1px;
+  }
+
+  /* Action buttons */
+  .products-page .card-actions,
+  .card-actions {
+    gap: 0.2rem;
+    flex-wrap: nowrap;
+  }
+
+  .products-page .add-to-cart-btn,
+  .add-to-cart-btn,
+  .products-page .buy-btn,
+  .buy-btn {
+    font-size: 0.56rem;
+    padding: 0.45rem 0.3rem;
+    letter-spacing: 0.07em;
+    border-radius: 3px;
+  }
+
+  .card-badge {
+    font-size: 0.5rem;
+    padding: 3px 9px;
+    top: 8px;
+    left: 8px;
+  }
+
+  /* Container */
+  .products-page .container,
+  .container {
+    width: calc(100% - 1.2rem);
+    padding-top: 1.25rem;
+    padding-bottom: 2rem;
+  }
 }

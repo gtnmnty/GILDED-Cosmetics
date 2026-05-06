@@ -89,7 +89,7 @@ function ProductCard({
         {product.badge && <span className="card-badge">{product.badge}</span>}
       </div>
       <div className="card-content">
-        <div className="card-brand">{product.brand}</div>
+        <div className="card-brand">{product.category}</div>
         <div className="card-name">{product.name}</div>
         <div className="card-rating">
           <span className="stars">★★★★★</span>
