@@ -101,15 +101,15 @@
 }
 
 .big-img {
-  width: 100%;
-  height: clamp(16rem, calc(8rem + 22vw), 26rem);
-  aspect-ratio: 16 / 9;
-  background-size: cover;
-  background-position: center;
-  border-radius: 10px;
-  position: relative;
-  overflow: hidden;
-  transition: background-image 0.4s ease;
+    width: 100%;
+    height: clamp(16rem, calc(8rem + 22vw), 26rem);
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: background-image 0.4s ease;
 }
 
 /* ─── Arrow Nav Circles ──────────────────────────────────── */
@@ -953,6 +953,12 @@
         font-size: clamp(0.62rem, calc(0.55rem + 0.4vw), 0.78rem);
         letter-spacing: clamp(0.08em, 0.15em, 0.18em);
     }
+
+    .service-overlay .thumbnail-bar {
+        grid-template-columns: repeat(4, 1fr);
+        gap: clamp(0.3rem, 1.2vw, 0.55rem);
+        margin-top: 0.6rem;
+    }
 }
 
 /* ─── Image viewer: fully fluid at ≤320px ────────────────── */
@@ -975,8 +981,9 @@
     }
 
     .service-overlay .thumbnail-bar {
-        grid-template-columns: repeat(auto-fill, minmax(clamp(2.5rem, 18vw, 3.5rem), 1fr));
-        gap: clamp(0.25rem, 1vw, 0.4rem);
+        grid-template-columns: repeat(auto-fill, minmax(clamp(3rem, 18vw, 4.5rem), 1fr));
+        gap: clamp(0.3rem, 1.2vw, 0.55rem);
+        margin-top: 0.6rem;
     }
 
     .service-overlay .info-pane {
@@ -1141,6 +1148,7 @@
         grid-template-columns: 1fr;
     }
 }
+
 /* ══════════════════════════════════════════
    RESPONSIVE ADDITIONS — <600px, <400px, <300px
 ══════════════════════════════════════════ */

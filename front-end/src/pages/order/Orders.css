@@ -385,11 +385,15 @@
     height: auto;
     min-height: 52px;
     padding: 10px 16px;
-    flex-wrap: wrap;
-    gap: 6px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    margin: 1.5rem auto;
+    gap: 0;
   }
-  .ord-back-link { position: static; }
-  .ord-page-title { font-size: 18px; flex: 1; text-align: right; }
+  .ord-back-link { position: static; font-size: 8px; justify-self: start; }
+  .ord-back-link svg{ height: 8px; }
+  .ord-page-title { font-size: 18px; flex: 1; text-align: center; justify-self: center;}
 
   /* Card header */
   .ord-card-header {

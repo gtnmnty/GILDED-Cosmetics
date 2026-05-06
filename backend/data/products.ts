@@ -15,12 +15,7 @@ export const products: ProductItem[] = [
       "https://images.pexels.com/photos/13573918/pexels-photo-13573918.jpeg",
       "https://images.pexels.com/photos/13573920/pexels-photo-13573920.jpeg"
     ],
-    info: [
-      'This formula deeply cleanses while repairing damaged hair fibers.',
-      'It is infused with keratin to strengthen every strand from root to tip.',
-      'The sulfate-free blend prevents color fading and maintains natural moisture.',
-      'Regular use leaves your hair feeling resilient and incredibly soft.'
-    ],
+    info: ["Keratin-Infused", "Sulfate-Free", "Color Safe", "300ml"],
     reviewCount: 1024,
     reviews: [
       { name: "Anika R.", stars: 5, date: "Mar 2025", text: "My hair is noticeably softer after just one wash. This is now a staple in my routine." },
@@ -42,12 +37,7 @@ export const products: ProductItem[] = [
       "https://images.pexels.com/photos/10825667/pexels-photo-10825667.jpeg",
       "https://images.pexels.com/photos/10825666/pexels-photo-10825666.jpeg"
     ],
-    info: [
-      'This lightweight oil provides an instant luminous glow to dull hair.',
-      'It effectively tames frizz and flyaways even in high humidity.',
-      'TThe non-greasy texture absorbs quickly without weighing hair down.',
-      'Apply a small amount to damp or dry ends for a polished finish.'
-    ],
+    info: ["24K Gold Particles", "Rosehip Oil", "Hyaluronic Acid", "30ml", "All Skin Types"],
     reviewCount: 1024,
     reviews: [
       { name: "Trisha V.", stars: 5, date: "Mar 2025", text: "My skin literally glows after using this. The texture is so luxurious and non-greasy." },
@@ -68,12 +58,7 @@ export const products: ProductItem[] = [
       "https://images.pexels.com/photos/7667674/pexels-photo-7667674.jpeg",
       "https://images.pexels.com/photos/31154612/pexels-photo-31154612.jpeg"
     ],
-    info: [
-      'This lipstick delivers high-pigment color with a single smooth swipe.',
-      'The creamy formula dries down to a comfortable, non-drying matte finish.',
-      'It is designed for long-lasting wear that stays vibrant all day.',
-      'Available in a sophisticated range of shades to suit every skin tone.'
-    ],
+    info: ["10-Hour Wear", "18 Shades", "Vitamin E", "Cruelty-Free", "3.5g"],
     reviewCount: 1024,
     reviews: [
       { name: "Lia S.", stars: 5, date: "Mar 2025", text: "The pigmentation is incredible and it doesn't dry out my lips at all. My go-to!" },
@@ -96,12 +81,7 @@ export const products: ProductItem[] = [
       "https://images.pexels.com/photos/7321658/pexels-photo-7321658.jpeg"
     ],
     reviewCount: 1024,
-    info: [
-      'This nourishing oil penetrates deeply to heal dry and cracked skin.',
-      'It is rich in essential vitamins to promote stronger nail growth.',
-      'The convenient applicator allows for precise and mess-free daily use.',
-      'Massaging this into your cuticles instantly revitalizes your entire manicure.'
-    ],
+    info: ["Jojoba Oil", "Vitamin E", "Lavender Extract", "15ml Pen", "Fast-Absorbing"],
     reviews: [
       { name: "Rosa G.", stars: 5, date: "Mar 2025", text: "My cuticles have never looked better. The lavender scent is so calming." },
       { name: "Abby C.", stars: 4, date: "Feb 2025", text: "Convenient pen applicator. Absorbs quickly and doesn't feel greasy at all." }
@@ -121,12 +101,7 @@ export const products: ProductItem[] = [
       "https://images.pexels.com/photos/4841515/pexels-photo-4841515.jpeg",
       "https://images.pexels.com/photos/4841513/pexels-photo-4841513.jpeg"
     ],
-    info: [
-      'This formula deeply cleanses while repairing damaged hair fibers.',
-      'It is infused with keratin to strengthen every strand from root to tip.',
-      'The sulfate-free blend prevents color fading and maintains natural moisture.',
-      'Regular use leaves your hair feeling resilient and incredibly soft.'
-    ],
+    info: ["Argan Oil", "Shea Butter", "Leave-In Formula", "200ml", "All Hair Types"],
     reviewCount: 1024,
     reviews: [
       { name: "Carla N.", stars: 5, date: "Mar 2025", text: "I woke up with the softest, most manageable hair I've ever had. Absolutely magical." },
@@ -147,12 +122,7 @@ export const products: ProductItem[] = [
       "https://images.pexels.com/photos/11935630/pexels-photo-11935630.jpeg",
       "https://images.pexels.com/photos/11935644/pexels-photo-11935644.jpeg"
     ],
-    info: [
-      'This targeted treatment visibly reduces the appearance of dark circles.',
-      'It features caffeine to depuff tired eyes for a refreshed look.',
-      'The hydrating formula smooths out fine lines and delicate skin texture.',
-      'Gentle enough for daily use under makeup or as a night treatment.'
-    ],
+    info: ["Caffeine Complex", "Peptide Blend", "Ceramides", "15ml", "Dermatologist-Tested"],
     reviewCount: 1024,
     reviews: [
       { name: "Ingrid V.", stars: 5, date: "Mar 2025", text: "My under-eye circles are visibly lighter after two weeks. I'm absolutely amazed." },

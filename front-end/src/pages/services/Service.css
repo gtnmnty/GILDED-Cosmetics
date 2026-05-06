@@ -594,6 +594,7 @@
   .services-page .card-price {
     flex: 0 1 auto;
     font-size: clamp(0.9rem, 4vw, 1.45rem);
+    flex-shrink: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1023,7 +1024,7 @@
 
   .services-page .card-price {
     font-size: clamp(0.85rem, 8vw, 1rem);
-    flex-shrink: 1;
+    flex-shrink: 0;
   }
 
   .services-page .card-actions {

@@ -1105,6 +1105,7 @@
   .product-overlay .info-pane,
   .info-pane {
     padding: 0.9rem 1rem;
+    overflow: visible;
   }
 
   .overlay-name {
@@ -1130,7 +1131,8 @@
   .product-overlay .action-btns,
   .action-btns {
     flex-direction: column;
-    gap: 0.5rem;
+    margin-top: 1.25rem;
+    padding-bottom: 0.5rem;
   }
 
   .product-overlay .btn-primary,
