@@ -385,19 +385,423 @@
   transform: translateY(0);
 }
 
-/* Responsive Mobile */
+/* ─── Responsive: Tablet (≤768px) ─────────────────────────────── */
 @media (max-width: 768px) {
-  .form-row {
+  .hs-page .container {
+    padding: 0 16px;
+  }
+
+  .hs-page .hero,
+  .hs-page .nim-section,
+  .hs-page .faq-section,
+  .hs-page .policy-section,
+  .hs-page .visit-section {
+    padding: 64px 0;
+  }
+
+  .hs-page .form-container {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .hs-page .form-row {
     flex-direction: column;
     gap: 0;
   }
 
-  .visit-flex {
+  .hs-page .visit-flex {
     flex-direction: column;
   }
 
-  .map-box {
+  .hs-page .map-box {
     height: 420px;
     width: 100%;
+    min-width: unset;
+  }
+
+  .hs-page .visit-card {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .hs-page .policy-card {
+    padding: 2rem 1.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .hs-page .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Responsive: Mobile (≤480px) ─────────────────────────────── */
+@media (max-width: 480px) {
+  .hs-page .container {
+    padding: 0 12px;
+  }
+
+  .hs-page .hero,
+  .hs-page .nim-section,
+  .hs-page .faq-section,
+  .hs-page .policy-section,
+  .hs-page .visit-section {
+    padding: 48px 0;
+  }
+
+  .hs-page .section-title {
+    margin-bottom: 2rem;
+  }
+
+  .hs-page .form-container {
+    padding: 2rem 1rem;
+  }
+
+  .hs-page .form-section {
+    padding: 0 12px 12px;
+  }
+
+  .hs-page .form-intro {
+    font-size: 1.1rem;
+    margin-bottom: 24px;
+  }
+
+  .hs-page .input-group label {
+    font-size: 1.4rem;
+  }
+
+  .hs-page input,
+  .hs-page textarea {
+    font-size: 1.2rem;
+    padding: 12px;
+  }
+
+  .hs-page .submit-btn {
+    font-size: 1.1rem;
+    padding: 16px;
+    letter-spacing: 1px;
+  }
+
+  .hs-page .contact-card {
+    padding: 30px 16px;
+  }
+
+  .hs-page .contact-type {
+    font-size: 1.75rem;
+  }
+
+  .hs-page .contact-info {
+    font-size: 1.1rem;
+  }
+
+  .hs-page .faq-item {
+    padding: 28px 16px;
+  }
+
+  .hs-page .policy-card {
+    padding: 1.75rem 1rem;
+    border-radius: 1rem;
+  }
+
+  .hs-page .policy-card p {
+    font-size: 1.2rem;
+  }
+
+  .hs-page .visit-card {
+    padding: 2rem 1rem;
+  }
+
+  .hs-page .detail-block .info {
+    font-size: 2rem;
+  }
+
+  .hs-page .map-box {
+    height: 320px;
+    min-width: unset;
+  }
+
+  .page-hero h1 {
+    letter-spacing: 0.05em;
+  }
+
+  .hero-line {
+    margin-top: 1rem;
+  }
+}
+
+/* ─── Responsive: Small Mobile (≤360px) ─────────────────────────── */
+@media (max-width: 360px) {
+  .hs-page .container {
+    padding: 0 10px;
+  }
+
+  .hs-page .hero,
+  .hs-page .nim-section,
+  .hs-page .faq-section,
+  .hs-page .policy-section,
+  .hs-page .visit-section {
+    padding: 40px 0;
+  }
+
+  .hs-page .form-container {
+    padding: 1.5rem 0.875rem;
+  }
+
+  .hs-page .form-section {
+    padding: 0 10px 10px;
+  }
+
+  .hs-page .section-subtitle {
+    padding: 8px 12px;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    margin: 2rem auto 0;
+  }
+
+  .hs-page .contact-card {
+    padding: 24px 12px;
+  }
+
+  .hs-page .icon-box {
+    font-size: 2.4rem;
+  }
+
+  .hs-page .contact-type {
+    font-size: 1.5rem;
+  }
+
+  .hs-page .contact-info {
+    font-size: 1rem;
+  }
+
+  .hs-page .contact-desc {
+    font-size: 0.9rem;
+  }
+
+  .hs-page .faq-item {
+    padding: 22px 12px;
+  }
+
+  .hs-page .policy-card {
+    padding: 1.5rem 0.875rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .hs-page .policy-card .policy-title {
+    font-size: clamp(1.2rem, 5vw, 2rem);
+  }
+
+  .hs-page .policy-card p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .hs-page .visit-card {
+    padding: 1.5rem 0.875rem;
+  }
+
+  .hs-page .detail-block {
+    margin-bottom: 20px;
+  }
+
+  .hs-page .detail-block .info {
+    font-size: 1.6rem;
+  }
+
+  .hs-page .detail-block p {
+    font-size: 0.9rem;
+  }
+
+  .hs-page .map-box {
+    height: 260px;
+    min-width: unset;
+  }
+
+  .hs-page .visit-info {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .hs-page .input-group label {
+    font-size: 1.2rem;
+  }
+
+  .hs-page input,
+  .hs-page textarea {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .hs-page .submit-btn {
+    font-size: 1rem;
+    padding: 14px;
+  }
+
+  .hs-page .form-intro {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+}
+
+/* ─── Responsive: Extra Small (≤300px) ──────────────────────────── */
+@media (max-width: 300px) {
+  .hs-page .container {
+    padding: 0 8px;
+  }
+
+  .hs-page .hero,
+  .hs-page .nim-section,
+  .hs-page .faq-section,
+  .hs-page .policy-section,
+  .hs-page .visit-section {
+    padding: 32px 0;
+  }
+
+  .hs-page .form-container {
+    padding: 1.25rem 0.75rem;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .hs-page .form-section {
+    padding: 0 8px 8px;
+  }
+
+  .hs-page .section-title {
+    margin-bottom: 1.5rem;
+  }
+
+  .hs-page .section-subtitle {
+    padding: 6px 10px;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    gap: 4px;
+    margin: 1.5rem auto 0;
+  }
+
+  .hs-page .contact-grid {
+    gap: 16px;
+  }
+
+  .hs-page .contact-card {
+    padding: 20px 10px;
+  }
+
+  .hs-page .icon-box {
+    font-size: 2rem;
+    margin-bottom: 14px;
+  }
+
+  .hs-page .contact-type {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+
+  .hs-page .contact-info {
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+  }
+
+  .hs-page .contact-desc {
+    font-size: 0.82rem;
+  }
+
+  .hs-page .faq-grid {
+    gap: 12px;
+    grid-template-columns: 1fr;
+  }
+
+  .hs-page .faq-item {
+    padding: 18px 10px;
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+  }
+
+  .hs-page .policy-card {
+    padding: 1.25rem 0.75rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .hs-page .policy-card .policy-title {
+    font-size: clamp(1.1rem, 5vw, 1.6rem);
+    margin-bottom: 8px;
+  }
+
+  .hs-page .policy-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .hs-page .visit-card {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .hs-page .visit-flex {
+    gap: 24px;
+  }
+
+  .hs-page .visit-info {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .hs-page .detail-block {
+    margin-bottom: 16px;
+  }
+
+  .hs-page .detail-block .info {
+    font-size: 1.3rem;
+    padding-left: 10px;
+    border-left-width: 3px;
+  }
+
+  .hs-page .detail-block p {
+    font-size: 0.82rem;
+  }
+
+  .hs-page .map-box {
+    height: 220px;
+    min-width: unset;
+    width: 100%;
+  }
+
+  .hs-page .input-group {
+    margin-bottom: 14px;
+  }
+
+  .hs-page .input-group label {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+
+  .hs-page input,
+  .hs-page textarea {
+    font-size: 0.9rem;
+    padding: 9px 8px;
+  }
+
+  .hs-page .submit-btn {
+    font-size: 0.9rem;
+    padding: 12px;
+    letter-spacing: 0.5px;
+    margin: 1.25rem 0;
+  }
+
+  .hs-page .form-intro {
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+
+  .page-hero h1 {
+    letter-spacing: 0.03em;
+    word-break: break-word;
+  }
+
+  .page-hero p {
+    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+  }
+
+  .hero-line {
+    width: 2.5rem;
+    margin-top: 0.875rem;
   }
 }

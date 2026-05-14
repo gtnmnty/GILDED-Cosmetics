@@ -196,10 +196,6 @@
   word-break: break-word;
   overflow-wrap: break-word;
   max-width: 100%;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .overlay-rating {
@@ -1537,5 +1533,60 @@
     font-size: 0.7rem;
     padding: 8px 12px;
     width: min(92vw, 260px);
+  }
+}
+
+@media (max-width: 430px) {
+  .product-overlay .info-pane,
+  .info-pane {
+    overflow: visible;
+    height: auto;
+    min-height: 0;
+  }
+
+  .overlay-desc {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+  }
+
+  .product-overlay .action-btns,
+  .action-btns {
+    margin-top: 1rem;
+    padding-top: 0;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .product-overlay .btn-primary,
+  .product-overlay .btn-secondary,
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    flex: unset;
+    min-width: unset;
+    padding: 0.85rem;
+    font-size: 0.72rem;
+    letter-spacing: 1.8px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .product-overlay .qty-row,
+  .qty-row {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .product-overlay .info-bullets li {
+    font-size: clamp(0.78rem, 3.5vw, 0.88rem);
+    line-height: 1.55;
+  }
+
+  .product-overlay .overlay-box,
+  .overlay-box {
+    overflow: visible;
+    overflow-y: auto;
   }
 }
