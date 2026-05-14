@@ -1,7 +1,7 @@
 .hs-page .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 clamp(0.75rem, 4vw, 1.25rem);
 }
 
 /* Typography per Wireframe */
@@ -19,8 +19,8 @@
 
 .hs-page .section-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  margin-bottom: 3rem;
+  font-size: clamp(1.6rem, 6vw, 3.5rem);
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
   text-align: center;
 }
 
@@ -32,16 +32,16 @@
   justify-content: center;
   gap: 7px;
   font-family: 'Jost', sans-serif;
-  font-size: clamp(0.5rem, calc(0.72rem + 0.8vw), 0.75rem);
+  font-size: clamp(0.6rem, calc(0.55rem + 0.35vw), 0.75rem);
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--wine);
   background: transparent;
   border: none;
-  padding: 10px 24px;
+  padding: clamp(6px, 1.5vw, 10px) clamp(12px, 3vw, 24px);
   cursor: pointer;
-  margin: 3rem auto 0;
+  margin: clamp(1.5rem, 4vw, 3rem) auto 0;
   transition: background 0.22s, border-color 0.22s, transform 0.22s, box-shadow 0.22s;
   text-align: center;
 }
@@ -68,24 +68,24 @@
 
 /* Hero */
 .hs-page .hero {
-  padding: 96px 0;
+  padding: clamp(3rem, 10vw, 6rem) 0;
   text-align: center;
   background: linear-gradient(160deg, var(--deep) 0%, var(--wine) 55%, var(--mauve) 100%);
 }
 
 /* NIM Section */
 .hs-page .nim-section {
-  padding: 96px 0;
+  padding: clamp(3rem, 10vw, 6rem) 0;
 }
 
 .hs-page .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: clamp(1rem, 3vw, 1.875rem);
 }
 
 .hs-page .contact-card {
-  padding: 40px 20px;
+  padding: clamp(1.5rem, 5vw, 2.5rem) clamp(1rem, 3vw, 1.25rem);
   text-align: center;
   border: 1px solid var(--blush);
   transition: 0.4s ease;
@@ -104,46 +104,38 @@
   transform: scale(1.05);
 }
 
-.hs-page .contact-card:hover .contact-info {
-  color: var(--deep);
-}
-
-.hs-page .contact-card:hover .contact-type {
-  color: var(--deep);
-}
-
-.hs-page .contact-card:hover .contact-desc {
-  color: var(--wine);
-}
+.hs-page .contact-card:hover .contact-info  { color: var(--deep); }
+.hs-page .contact-card:hover .contact-type  { color: var(--deep); }
+.hs-page .contact-card:hover .contact-desc  { color: var(--wine); }
 
 .hs-page .icon-box {
-  font-size: 3rem;
+  font-size: clamp(2rem, 6vw, 3rem);
   color: var(--mauve);
-  margin-bottom: 20px;
+  margin-bottom: clamp(0.75rem, 2.5vw, 1.25rem);
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .hs-page .contact-type {
-  font-size: 2.25rem;
-  margin-bottom: 10px;
+  font-size: clamp(1.4rem, 4vw, 2.25rem);
+  margin-bottom: clamp(0.4rem, 1.5vw, 0.625rem);
   font-family: 'Cormorant Garamond', serif;
 }
 
 .hs-page .contact-info {
-  font-size: 1.25rem;
+  font-size: clamp(0.95rem, 2.5vw, 1.25rem);
   font-weight: 600;
   margin-bottom: 5px;
 }
 
 .hs-page .contact-desc {
-  font-size: 1rem;
+  font-size: clamp(0.82rem, 2vw, 1rem);
   color: var(--wine);
   font-weight: 300;
 }
 
 /* FAQs */
 .hs-page .faq-section {
-  padding: 96px 0;
+  padding: clamp(3rem, 10vw, 6rem) 0;
   background-color: var(--blush);
 }
 
@@ -156,15 +148,15 @@
 .hs-page .faq-grid {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: clamp(0.75rem, 2.5vw, 1.25rem);
 }
 
 .hs-page .faq-item {
   background: var(--white);
-  padding: 40px 20px;
+  padding: clamp(1.25rem, 4vw, 2.5rem) clamp(0.75rem, 2.5vw, 1.25rem);
   text-align: center;
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1.1rem, 3vw, 2.5rem);
   font-family: 'Cormorant Garamond', serif;
   cursor: pointer;
   transition: 0.3s;
@@ -177,27 +169,27 @@
 
 /* Policy Cards */
 .hs-page .policy-section {
-  padding: 96px 0;
+  padding: clamp(3rem, 10vw, 6rem) 0;
 }
 
 .hs-page .policy-card {
-  border-radius: 2.5rem;
+  border-radius: clamp(1rem, 4vw, 2.5rem);
   border: 1px solid rgba(165, 56, 96, 0.25);
   background: var(--white);
-  padding: 3rem;
-  margin-bottom: 2rem;
+  padding: clamp(1.25rem, 4vw, 3rem);
+  margin-bottom: clamp(1rem, 2.5vw, 2rem);
 }
 
 .hs-page .policy-card .policy-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.4rem, 3vw, 3.5rem);
+  font-size: clamp(1.2rem, 3vw, 3.5rem);
   margin-bottom: 12px;
   text-align: center;
   color: var(--deep);
 }
 
 .hs-page .policy-card p {
-  font-size: 1.5rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.5rem);
   font-weight: 300;
   color: #5a2a40;
   line-height: 1.8;
@@ -206,14 +198,14 @@
 
 /* Contact Form */
 .hs-page .form-section {
-  padding: 0 20px 20px;
+  padding: 0 clamp(0.5rem, 3vw, 1.25rem) clamp(0.5rem, 3vw, 1.25rem);
 }
 
 .hs-page .form-container {
   max-width: 1160px;
   width: 100%;
   margin: 0 auto;
-  padding: 4rem;
+  padding: clamp(1.25rem, 5vw, 4rem);
   background: rgba(255, 255, 255, 0.55);
   border: 1px solid rgba(255, 165, 171, 0.35);
   box-shadow: 0 20px 50px rgba(69, 9, 32, 0.12);
@@ -223,26 +215,27 @@
 
 .hs-page .form-intro {
   text-align: center;
-  font-size: 1.4rem;
-  margin-bottom: 40px;
+  font-size: clamp(0.9rem, 2.5vw, 1.4rem);
+  margin-bottom: clamp(1.25rem, 4vw, 2.5rem);
   color: #5a2a40;
 }
 
 .hs-page .form-row {
   display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+  margin-bottom: clamp(0.75rem, 2vw, 1.25rem);
 }
 
 .hs-page .input-group {
-  flex: 1;
+  flex: 1 1 min(100%, 260px);
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: clamp(0.75rem, 2vw, 1.25rem);
 }
 
 .hs-page .input-group label {
-  font-size: 1.75rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.75rem);
   font-weight: 600;
   margin-bottom: 8px;
   color: var(--deep);
@@ -250,11 +243,13 @@
 
 .hs-page input,
 .hs-page textarea {
-  padding: 15px;
+  padding: clamp(8px, 2vw, 15px);
   border: 1px solid rgba(165, 56, 96, 0.25);
   font-family: inherit;
-  font-size: 1.5rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.5rem);
   background: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hs-page input:focus,
@@ -265,15 +260,15 @@
 
 .hs-page .submit-btn {
   width: 100%;
-  padding: 20px;
+  padding: clamp(12px, 3vw, 20px);
   background: var(--deep);
   color: white;
   border: none;
-  font-size: 1.4rem;
+  font-size: clamp(0.85rem, 2.5vw, 1.4rem);
   letter-spacing: 2px;
   cursor: pointer;
   transition: 0.3s;
-  margin: 2rem 0;
+  margin: clamp(1rem, 3vw, 2rem) 0;
 }
 
 .hs-page .submit-btn:hover {
@@ -282,37 +277,36 @@
 
 /* Visit Us */
 .hs-page .visit-section {
-  padding: 96px 0;
+  padding: clamp(3rem, 10vw, 6rem) 0;
 }
 
 .hs-page .visit-card {
   border: 1px solid rgba(69, 9, 32, 0.2);
   background: #e3e0dd;
-  padding: 4rem;
+  padding: clamp(1.25rem, 5vw, 4rem);
 }
 
 .hs-page .visit-card .section-title {
-  margin-bottom: 3rem;
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
 }
 
 .hs-page .visit-flex {
   display: flex;
   flex-wrap: wrap;
-  gap: 50px;
+  gap: clamp(1.5rem, 5vw, 3.125rem);
   align-items: center;
 }
 
 .hs-page .visit-info {
-  flex: 1;
-  min-width: 300px;
+  flex: 1 1 min(100%, 280px);
 }
 
 .hs-page .detail-block {
-  margin-bottom: 30px;
+  margin-bottom: clamp(1.25rem, 3vw, 1.875rem);
 }
 
 .hs-page .detail-block .info {
-  font-size: 2.5rem;
+  font-size: clamp(1.4rem, 4vw, 2.5rem);
   color: var(--deep);
   margin-bottom: 10px;
   border-left: 4px solid var(--mauve);
@@ -321,19 +315,18 @@
 }
 
 .hs-page .detail-block p {
-  font-size: 1rem;
+  font-size: clamp(0.82rem, 2vw, 1rem);
   color: #5a2a40;
 }
 
 .hs-page .map-box {
-  flex: 1.3;
-  min-width: 350px;
-  height: 600px;
+  flex: 1.3 1 min(100%, 320px);
+  height: clamp(240px, 50vw, 600px);
   border: 1px solid rgba(69, 9, 32, 0.35);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-/* Animations */
+/* Page Hero */
 .hs-page .page-hero {
   background: linear-gradient(160deg, var(--deep) 0%, var(--wine) 55%, var(--mauve) 100%);
   padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1rem, 4vw, 3rem);
@@ -356,6 +349,7 @@
   font-weight: 300;
   color: var(--white);
   letter-spacing: 0.1em;
+  word-break: break-word;
 }
 
 .page-hero h1 span {
@@ -367,441 +361,19 @@
   position: relative;
   margin-top: 0.5rem;
   color: rgba(255, 255, 255, 0.62);
-  font-size: clamp(0.78rem, calc(0.72rem + 0.18vw), 0.92rem);
-  letter-spacing: 0.22em;
+  font-size: clamp(0.65rem, calc(0.6rem + 0.35vw), 0.92rem);
+  letter-spacing: clamp(0.1em, 2vw, 0.22em);
   text-transform: uppercase;
 }
 
 .hero-line {
-  width: clamp(3rem, 7vw, 4.2rem);
+  width: clamp(2.5rem, 7vw, 4.2rem);
   height: 1px;
   background: var(--blush);
   margin: 1.2rem auto 0;
 }
 
-
 .hs-page .reveal.active {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* ─── Responsive: Tablet (≤768px) ─────────────────────────────── */
-@media (max-width: 768px) {
-  .hs-page .container {
-    padding: 0 16px;
-  }
-
-  .hs-page .hero,
-  .hs-page .nim-section,
-  .hs-page .faq-section,
-  .hs-page .policy-section,
-  .hs-page .visit-section {
-    padding: 64px 0;
-  }
-
-  .hs-page .form-container {
-    padding: 2.5rem 1.5rem;
-  }
-
-  .hs-page .form-row {
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .hs-page .visit-flex {
-    flex-direction: column;
-  }
-
-  .hs-page .map-box {
-    height: 420px;
-    width: 100%;
-    min-width: unset;
-  }
-
-  .hs-page .visit-card {
-    padding: 2.5rem 1.5rem;
-  }
-
-  .hs-page .policy-card {
-    padding: 2rem 1.5rem;
-    border-radius: 1.5rem;
-  }
-
-  .hs-page .contact-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ─── Responsive: Mobile (≤480px) ─────────────────────────────── */
-@media (max-width: 480px) {
-  .hs-page .container {
-    padding: 0 12px;
-  }
-
-  .hs-page .hero,
-  .hs-page .nim-section,
-  .hs-page .faq-section,
-  .hs-page .policy-section,
-  .hs-page .visit-section {
-    padding: 48px 0;
-  }
-
-  .hs-page .section-title {
-    margin-bottom: 2rem;
-  }
-
-  .hs-page .form-container {
-    padding: 2rem 1rem;
-  }
-
-  .hs-page .form-section {
-    padding: 0 12px 12px;
-  }
-
-  .hs-page .form-intro {
-    font-size: 1.1rem;
-    margin-bottom: 24px;
-  }
-
-  .hs-page .input-group label {
-    font-size: 1.4rem;
-  }
-
-  .hs-page input,
-  .hs-page textarea {
-    font-size: 1.2rem;
-    padding: 12px;
-  }
-
-  .hs-page .submit-btn {
-    font-size: 1.1rem;
-    padding: 16px;
-    letter-spacing: 1px;
-  }
-
-  .hs-page .contact-card {
-    padding: 30px 16px;
-  }
-
-  .hs-page .contact-type {
-    font-size: 1.75rem;
-  }
-
-  .hs-page .contact-info {
-    font-size: 1.1rem;
-  }
-
-  .hs-page .faq-item {
-    padding: 28px 16px;
-  }
-
-  .hs-page .policy-card {
-    padding: 1.75rem 1rem;
-    border-radius: 1rem;
-  }
-
-  .hs-page .policy-card p {
-    font-size: 1.2rem;
-  }
-
-  .hs-page .visit-card {
-    padding: 2rem 1rem;
-  }
-
-  .hs-page .detail-block .info {
-    font-size: 2rem;
-  }
-
-  .hs-page .map-box {
-    height: 320px;
-    min-width: unset;
-  }
-
-  .page-hero h1 {
-    letter-spacing: 0.05em;
-  }
-
-  .hero-line {
-    margin-top: 1rem;
-  }
-}
-
-/* ─── Responsive: Small Mobile (≤360px) ─────────────────────────── */
-@media (max-width: 360px) {
-  .hs-page .container {
-    padding: 0 10px;
-  }
-
-  .hs-page .hero,
-  .hs-page .nim-section,
-  .hs-page .faq-section,
-  .hs-page .policy-section,
-  .hs-page .visit-section {
-    padding: 40px 0;
-  }
-
-  .hs-page .form-container {
-    padding: 1.5rem 0.875rem;
-  }
-
-  .hs-page .form-section {
-    padding: 0 10px 10px;
-  }
-
-  .hs-page .section-subtitle {
-    padding: 8px 12px;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    margin: 2rem auto 0;
-  }
-
-  .hs-page .contact-card {
-    padding: 24px 12px;
-  }
-
-  .hs-page .icon-box {
-    font-size: 2.4rem;
-  }
-
-  .hs-page .contact-type {
-    font-size: 1.5rem;
-  }
-
-  .hs-page .contact-info {
-    font-size: 1rem;
-  }
-
-  .hs-page .contact-desc {
-    font-size: 0.9rem;
-  }
-
-  .hs-page .faq-item {
-    padding: 22px 12px;
-  }
-
-  .hs-page .policy-card {
-    padding: 1.5rem 0.875rem;
-    border-radius: 0.75rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .hs-page .policy-card .policy-title {
-    font-size: clamp(1.2rem, 5vw, 2rem);
-  }
-
-  .hs-page .policy-card p {
-    font-size: 1.05rem;
-    line-height: 1.7;
-  }
-
-  .hs-page .visit-card {
-    padding: 1.5rem 0.875rem;
-  }
-
-  .hs-page .detail-block {
-    margin-bottom: 20px;
-  }
-
-  .hs-page .detail-block .info {
-    font-size: 1.6rem;
-  }
-
-  .hs-page .detail-block p {
-    font-size: 0.9rem;
-  }
-
-  .hs-page .map-box {
-    height: 260px;
-    min-width: unset;
-  }
-
-  .hs-page .visit-info {
-    min-width: unset;
-    width: 100%;
-  }
-
-  .hs-page .input-group label {
-    font-size: 1.2rem;
-  }
-
-  .hs-page input,
-  .hs-page textarea {
-    font-size: 1rem;
-    padding: 10px;
-  }
-
-  .hs-page .submit-btn {
-    font-size: 1rem;
-    padding: 14px;
-  }
-
-  .hs-page .form-intro {
-    font-size: 1rem;
-    margin-bottom: 20px;
-  }
-}
-
-/* ─── Responsive: Extra Small (≤300px) ──────────────────────────── */
-@media (max-width: 300px) {
-  .hs-page .container {
-    padding: 0 8px;
-  }
-
-  .hs-page .hero,
-  .hs-page .nim-section,
-  .hs-page .faq-section,
-  .hs-page .policy-section,
-  .hs-page .visit-section {
-    padding: 32px 0;
-  }
-
-  .hs-page .form-container {
-    padding: 1.25rem 0.75rem;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-
-  .hs-page .form-section {
-    padding: 0 8px 8px;
-  }
-
-  .hs-page .section-title {
-    margin-bottom: 1.5rem;
-  }
-
-  .hs-page .section-subtitle {
-    padding: 6px 10px;
-    font-size: 0.6rem;
-    letter-spacing: 0.1em;
-    gap: 4px;
-    margin: 1.5rem auto 0;
-  }
-
-  .hs-page .contact-grid {
-    gap: 16px;
-  }
-
-  .hs-page .contact-card {
-    padding: 20px 10px;
-  }
-
-  .hs-page .icon-box {
-    font-size: 2rem;
-    margin-bottom: 14px;
-  }
-
-  .hs-page .contact-type {
-    font-size: 1.3rem;
-    margin-bottom: 8px;
-  }
-
-  .hs-page .contact-info {
-    font-size: 0.9rem;
-    margin-bottom: 4px;
-  }
-
-  .hs-page .contact-desc {
-    font-size: 0.82rem;
-  }
-
-  .hs-page .faq-grid {
-    gap: 12px;
-    grid-template-columns: 1fr;
-  }
-
-  .hs-page .faq-item {
-    padding: 18px 10px;
-    font-size: clamp(1.2rem, 5vw, 1.8rem);
-  }
-
-  .hs-page .policy-card {
-    padding: 1.25rem 0.75rem;
-    border-radius: 0.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .hs-page .policy-card .policy-title {
-    font-size: clamp(1.1rem, 5vw, 1.6rem);
-    margin-bottom: 8px;
-  }
-
-  .hs-page .policy-card p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-
-  .hs-page .visit-card {
-    padding: 1.25rem 0.75rem;
-  }
-
-  .hs-page .visit-flex {
-    gap: 24px;
-  }
-
-  .hs-page .visit-info {
-    min-width: unset;
-    width: 100%;
-  }
-
-  .hs-page .detail-block {
-    margin-bottom: 16px;
-  }
-
-  .hs-page .detail-block .info {
-    font-size: 1.3rem;
-    padding-left: 10px;
-    border-left-width: 3px;
-  }
-
-  .hs-page .detail-block p {
-    font-size: 0.82rem;
-  }
-
-  .hs-page .map-box {
-    height: 220px;
-    min-width: unset;
-    width: 100%;
-  }
-
-  .hs-page .input-group {
-    margin-bottom: 14px;
-  }
-
-  .hs-page .input-group label {
-    font-size: 1rem;
-    margin-bottom: 6px;
-  }
-
-  .hs-page input,
-  .hs-page textarea {
-    font-size: 0.9rem;
-    padding: 9px 8px;
-  }
-
-  .hs-page .submit-btn {
-    font-size: 0.9rem;
-    padding: 12px;
-    letter-spacing: 0.5px;
-    margin: 1.25rem 0;
-  }
-
-  .hs-page .form-intro {
-    font-size: 0.9rem;
-    margin-bottom: 16px;
-  }
-
-  .page-hero h1 {
-    letter-spacing: 0.03em;
-    word-break: break-word;
-  }
-
-  .page-hero p {
-    letter-spacing: 0.12em;
-    font-size: 0.72rem;
-  }
-
-  .hero-line {
-    width: 2.5rem;
-    margin-top: 0.875rem;
-  }
 }

@@ -663,6 +663,7 @@
   text-align: left;
   min-width: 0;
   overflow: hidden;
+  max-height: none;
 }
 
 .product-overlay .overlay-rating {
@@ -965,7 +966,7 @@
   opacity: 1;
 }
 
-/* Final product action-button lock: service overlay uses the same .action-btns name. */
+
 .product-overlay .action-btns {
   display: flex;
   flex-direction: row;
@@ -1019,8 +1020,9 @@
 
 @media (max-width: 520px) {
   .product-overlay .action-btns {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
   }
 
   .product-overlay .btn-primary,
@@ -1029,12 +1031,14 @@
     width: 100%;
   }
 }
+
 /* ══════════════════════════════════════════
    RESPONSIVE ADDITIONS — <600px, <300px
 ══════════════════════════════════════════ */
 
 /* ── ≤600px ── */
 @media (max-width: 600px) {
+
   /* Overlay padding tighter */
   .product-overlay.overlay,
   .overlay {
@@ -1102,6 +1106,7 @@
   .info-pane {
     padding: 0.9rem 1rem;
     overflow: visible;
+    max-height: none;
   }
 
   .overlay-name {
@@ -1169,6 +1174,7 @@
 
 /* ── ≤400px ── */
 @media (max-width: 400px) {
+
   .product-overlay.overlay,
   .overlay {
     padding: 0.25rem;
@@ -1291,6 +1297,7 @@
 
 /* ── ≤300px: ultra-narrow ── */
 @media (max-width: 300px) {
+
   .product-overlay.overlay,
   .overlay {
     padding: 0.15rem;
@@ -1424,6 +1431,7 @@
   .action-btns {
     gap: 0.35rem;
     padding-top: 0.65rem;
+    flex-direction: column;
   }
 
   .product-overlay .btn-primary,
@@ -1537,11 +1545,13 @@
 }
 
 @media (max-width: 430px) {
+
   .product-overlay .info-pane,
   .info-pane {
     overflow: visible;
     height: auto;
-    min-height: 0;
+    min-height: min-content;
+    max-height: none;
   }
 
   .overlay-desc {
@@ -1552,6 +1562,8 @@
 
   .product-overlay .action-btns,
   .action-btns {
+    display: flex;
+    flex-wrap: nowrap;
     margin-top: 1rem;
     padding-top: 0;
     flex-direction: column;
