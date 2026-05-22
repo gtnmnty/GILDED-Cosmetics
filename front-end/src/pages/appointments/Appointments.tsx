@@ -71,7 +71,11 @@ function AppointmentCard({
             <div className="apt-meta-item">
               <span className="apt-meta-key">Date</span>
               <span className="apt-meta-sep">—</span>
-              <span className="apt-meta-val">{apt.date || '—'}</span>
+              <span className="apt-meta-val">
+                {apt.date
+                  ? new Date(apt.date.replace(/-/g, '/')).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+                  : '—'}
+              </span>
             </div>
             <div className="apt-meta-item">
               <span className="apt-meta-key">Time</span>
