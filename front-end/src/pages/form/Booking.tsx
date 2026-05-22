@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router';
 import type { BookingForm } from '../../../../backend/types/booking.ts';
 import type { UserAccount } from '../../../../backend/types/users.ts';
 import type { Appointment } from '../../../../backend/types/appointments.ts';
+import { services } from '../../../../backend/data/services.js';
 import { Header } from '../../Components/Header.js';
 import { Footer } from '../../Components/Footer.js';
 import './Booking.css';
@@ -15,14 +16,10 @@ const BRANCHES = [
   'Cebu Branch',
 ];
 
-const SERVICES = [
-  'Signature Haircut & Style',
-  'Deep Hydration Facial',
-  'Luxury Gel Manicure',
-  'Bridal Make Up',
-  'Balayage & Toning',
-  'Pedicure & Foot Ritual',
-];
+function getServiceImg(serviceName: string): string {
+  const match = services.find(s => s.name === serviceName);
+  return match?.imgs?.[0] ?? '';
+}
 
 const EMPTY_FORM: BookingForm = {
   name: '',
@@ -171,7 +168,7 @@ export function Booking() {
         id: `APT-${String(Date.now()).slice(-5)}`,
         status: 'upcoming',
         service: form.service,
-        img: imgFromNav,
+        img: imgFromNav || getServiceImg(form.service),
         branch: form.serviceType === 'home'
           ? [form.street, form.barangay, form.city].filter(Boolean).join(', ')
           : form.branch ?? '',
@@ -363,10 +360,10 @@ export function Booking() {
                   value={form.service}
                   onChange={e => set('service', e.target.value)}>
                   <option value="" disabled>Select service</option>
-                  {serviceFromNav && !SERVICES.includes(serviceFromNav) && (
+                  {serviceFromNav && !services.some(s => s.name === serviceFromNav) && (
                     <option value={serviceFromNav}>{serviceFromNav}</option>
                   )}
-                  {SERVICES.map(s => <option key={s} value={s}>{s}</option>)}
+                  {services.map(s => <option key={s.id} value={s.name}>{s.name}</option>)}
                 </select>
                 {errors.service && <span className="bk-error-msg">{errors.service}</span>}
               </div>

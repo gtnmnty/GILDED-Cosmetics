@@ -38,14 +38,6 @@ export function Account() {
 
   const navigate = useNavigate();
 
-  const [profile, setProfile] = useState({
-    name: 'Jon Snow',
-    email: 'jdncanthtall8678@mail.com',
-    phone: '09354334633',
-    bday: '02-01-1500',
-    password: ''
-  })
-
   function saveAddress() {
     const label = `${addressForm.street}, ${addressForm.barangay}, ${addressForm.city}, ${addressForm.zip}`
     const next = [...savedAddresses.filter(a => a !== label), label]
@@ -131,6 +123,22 @@ export function Account() {
     catch { return null; }
   });
 
+  useEffect(() => {
+    setProfile({
+      name: currentUser?.fullName ?? 'Guest',
+      email: currentUser?.email ?? 'guest@email.com',
+      phone: currentUser?.phone ?? '',
+      password: ''
+    })
+  }, [currentUser])
+
+  const [profile, setProfile] = useState({
+    name: currentUser?.fullName ?? 'Guest',
+    email: currentUser?.email ?? 'guest@email.com',
+    phone: currentUser?.phone ?? '',
+    password: ''
+  })
+
   const orders = currentUser?.orders ?? [];
 
 
@@ -158,9 +166,9 @@ export function Account() {
                 ref={avatarInputRef}
                 type="file"
                 id="avatar-input"
-                className="avatar-input"
                 accept="image/*"
                 onChange={handleAvatarChange}
+                style={{ display: 'none' }}
               />
             </div>
             <div className="profile-info">
@@ -676,7 +684,7 @@ export function Account() {
                                   const hour = parseInt(h);
                                   const ampm = hour >= 12 ? 'PM' : 'AM';
                                   const hour12 = hour % 12 || 12;
-                                  return `${hour12}:${m} ${ampm}`;
+                                  return `${hour12} ${ampm}`
                                 })()
                                 : apt.time;
 
